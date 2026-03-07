@@ -1,0 +1,47 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      # If you have build scripts you can run them here:
+      # - name: Build Frontend
+      #   working-directory: ./frontend
+      #   run: npm run build
+
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install Requirements
+        working-directory: ./backend
+        run: pip install -r requirements.txt
+
+      # Any python testing or standard tasks can run here.
+
+  # Note: Deployment to Vercel and Render can be natively handled by connecting the GitHub repository to their platforms.
+  # Simply ensure Vercel points to /frontend and Render points to /backend.
