@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trade_with_Nilay - Backtesting Performance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af35",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#201d12",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 border-r border-primary/20 bg-white dark:bg-slate-950 flex flex-col h-full">
+<div class="p-6 border-b border-primary/10">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-primary">Trade_with_Nilay</h2>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto p-4 space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">query_stats</span>
+<p class="text-sm font-medium">Screener</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">model_training</span>
+<p class="text-sm font-semibold">Nilay's Scanner Hub</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">balance</span>
+<p class="text-sm font-medium">Fundamental</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">autorenew</span>
+<p class="text-sm font-medium">Sector Rotation</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">newspaper</span>
+<p class="text-sm font-medium">News &amp; Events</p>
+</div>
+<div class="mt-8 pt-8 border-t border-primary/10">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">forum</span>
+<p class="text-sm font-medium">AI Chatbot</p>
+</div>
+</div>
+</nav>
+<div class="p-4 border-t border-primary/10 bg-slate-50/50">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/20 overflow-hidden">
+<img alt="User Avatar" data-alt="User profile avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHmkhSZV_Vsz8o5FYWb-68hJEjP7vgwEy8rSFLEbCBnCZaIb8i52QEPjBdKZCBFXvqC2PuyKJSEJg6it-PB-R_EDfK1glqQB3sWvddCKeBGFEdE2iLTBWpOt1x25J-l0xI10aOEItCa9fM3O5DQF2HlDeq3sB0ZSoTDCDKl4JE041sYJURNXyqxfus14znxsUgQ45tCeg3Ic5SNg3FBmEzUrKiPZdPVt9ZUyAMIgzI3hM7ADg1qugfF0V-Yqrx_mau4DUMdqkWZJw"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">Premium Member</p>
+<p class="text-[10px] text-slate-500">Nilay Shah</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto">
+<!-- Header -->
+<header class="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-primary/10 px-8 py-4 flex items-center justify-between">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full bg-slate-100 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50" placeholder="Search historical logs, symbols, or patterns..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 rounded-lg flex items-center justify-center bg-slate-100 text-slate-600 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export Report
+                    </button>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Page Title -->
+<div>
+<h1 class="text-3xl font-black tracking-tight">Backtesting Performance History</h1>
+<p class="text-slate-500 mt-1">Detailed statistical verification of the scanner algorithms for the last 12 months.</p>
+</div>
+<!-- High Level Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-white p-6 rounded-xl border border-primary/10 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-slate-500 text-sm font-medium">Win Ratio</span>
+<span class="material-symbols-outlined text-green-500 text-lg">verified</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold">68.5%</span>
+<span class="text-green-600 text-xs font-bold">+2.1% ↑</span>
+</div>
+<div class="mt-4 w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 68.5%"></div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-primary/10 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-slate-500 text-sm font-medium">Avg. Return / Trade</span>
+<span class="material-symbols-outlined text-primary text-lg">trending_up</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold">+4.22%</span>
+<span class="text-green-600 text-xs font-bold">+0.15% ↑</span>
+</div>
+<p class="text-[10px] text-slate-400 mt-4 italic">Weighted by risk-reward ratio 1:3</p>
+</div>
+<div class="bg-white p-6 rounded-xl border border-primary/10 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-slate-500 text-sm font-medium">Total Alerts Tested</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">history</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold">1,248</span>
+<span class="text-slate-400 text-xs font-medium">Sample size</span>
+</div>
+<p class="text-[10px] text-slate-400 mt-4 italic">99.2% Data confidence interval</p>
+</div>
+<div class="bg-white p-6 rounded-xl border border-primary/10 shadow-sm ring-2 ring-primary/20">
+<div class="flex items-center justify-between mb-2">
+<span class="text-slate-500 text-sm font-medium">Estimated Net Profit</span>
+<span class="material-symbols-outlined text-amber-500 text-lg">payments</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold">$12,450</span>
+<span class="text-green-600 text-xs font-bold">+18.4% YoY</span>
+</div>
+<p class="text-[10px] text-slate-400 mt-4 italic">Based on $50,000 standard capital</p>
+</div>
+</div>
+<!-- Chart and Summary -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 bg-white p-6 rounded-xl border border-primary/10 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="font-bold text-lg">Equity Profit Curve</h3>
+<p class="text-xs text-slate-400">Cumulative performance across all active scanners</p>
+</div>
+<select class="text-xs border-slate-200 rounded-lg bg-slate-50">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+<option>All Time</option>
+</select>
+</div>
+<div class="h-[280px] w-full relative">
+<!-- SVG Placeholder for Recharts-like Chart -->
+<svg class="w-full h-full" viewbox="0 0 800 280">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#d4af35" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#d4af35" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,250 Q100,230 150,200 T250,180 T350,120 T450,140 T550,80 T650,100 T800,40 V280 H0 Z" fill="url(#chartGradient)"></path>
+<path d="M0,250 Q100,230 150,200 T250,180 T350,120 T450,140 T550,80 T650,100 T800,40" fill="none" stroke="#d4af35" stroke-width="3"></path>
+<circle cx="150" cy="200" fill="#d4af35" r="4"></circle>
+<circle cx="350" cy="120" fill="#d4af35" r="4"></circle>
+<circle cx="550" cy="80" fill="#d4af35" r="4"></circle>
+<circle cx="800" cy="40" fill="#d4af35" r="4"></circle>
+<!-- Grid Lines -->
+<line stroke="#f1f5f9" x1="0" x2="800" y1="280" y2="280"></line>
+<line stroke="#f1f5f9" x1="0" x2="800" y1="210" y2="210"></line>
+<line stroke="#f1f5f9" x1="0" x2="800" y1="140" y2="140"></line>
+<line stroke="#f1f5f9" x1="0" x2="800" y1="70" y2="70"></line>
+</svg>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+<span>Jan</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-primary/10 shadow-sm flex flex-col">
+<h3 class="font-bold text-lg mb-4">Scanner Breakdown</h3>
+<div class="flex-1 space-y-4">
+<div class="flex items-center gap-4">
+<div class="size-2 rounded-full bg-primary"></div>
+<div class="flex-1">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium">Swing Breakout</span>
+<span class="font-bold">72% WR</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full">
+<div class="h-full bg-primary rounded-full" style="width: 72%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-2 rounded-full bg-amber-600"></div>
+<div class="flex-1">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium">VCP Tightness</span>
+<span class="font-bold">64% WR</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full">
+<div class="h-full bg-amber-600 rounded-full" style="width: 64%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-2 rounded-full bg-slate-800"></div>
+<div class="flex-1">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium">Volume Surge</span>
+<span class="font-bold">59% WR</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full">
+<div class="h-full bg-slate-800 rounded-full" style="width: 59%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-2 rounded-full bg-primary/40"></div>
+<div class="flex-1">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium">EMA Rebound</span>
+<span class="font-bold">51% WR</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full">
+<div class="h-full bg-primary/40 rounded-full" style="width: 51%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/10">
+<p class="text-xs leading-relaxed text-slate-600">
+<strong>Insight:</strong> Swing Breakout is performing optimally in current market regimes. Consider increasing allocation.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Historical Table -->
+<div class="bg-white rounded-xl border border-primary/10 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-primary/5 flex items-center justify-between bg-slate-50/50">
+<h3 class="font-bold text-lg">Detailed Backtest Logs</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 bg-white border border-slate-200 rounded text-xs font-semibold hover:bg-slate-50">Filters</button>
+<button class="px-3 py-1.5 bg-white border border-slate-200 rounded text-xs font-semibold hover:bg-slate-50">Columns</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50 text-slate-400 text-[10px] uppercase tracking-widest font-bold">
+<th class="px-6 py-4 border-b border-primary/5">Date</th>
+<th class="px-6 py-4 border-b border-primary/5">Scanner</th>
+<th class="px-6 py-4 border-b border-primary/5">Symbol</th>
+<th class="px-6 py-4 border-b border-primary/5">Entry Price</th>
+<th class="px-6 py-4 border-b border-primary/5">Pattern</th>
+<th class="px-6 py-4 border-b border-primary/5 text-right">Volume</th>
+<th class="px-6 py-4 border-b border-primary/5 text-center">Result</th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-primary/5">
+<tr class="hover:bg-primary/5 transition-colors cursor-default">
+<td class="px-6 py-4 text-slate-500 whitespace-nowrap">2023-11-20</td>
+<td class="px-6 py-4 font-medium text-primary">Swing Breakout</td>
+<td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded font-bold text-xs">RELIANCE</span></td>
+<td class="px-6 py-4 font-mono">₹2,345.50</td>
+<td class="px-6 py-4 italic text-slate-500">Cup &amp; Handle</td>
+<td class="px-6 py-4 text-right">1.2M <span class="text-[10px] text-green-500">(+15%)</span></td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">
+<span class="size-1 bg-green-700 rounded-full"></span> TARGET HIT
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-default">
+<td class="px-6 py-4 text-slate-500 whitespace-nowrap">2023-11-18</td>
+<td class="px-6 py-4 font-medium text-primary">VCP Tightness</td>
+<td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded font-bold text-xs">TCS</span></td>
+<td class="px-6 py-4 font-mono">₹3,490.00</td>
+<td class="px-6 py-4 italic text-slate-500">3-Weeks Tight</td>
+<td class="px-6 py-4 text-right">890K <span class="text-[10px] text-slate-400">(0%)</span></td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold">
+<span class="size-1 bg-amber-700 rounded-full"></span> OPEN
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-default">
+<td class="px-6 py-4 text-slate-500 whitespace-nowrap">2023-11-15</td>
+<td class="px-6 py-4 font-medium text-primary">Volume Surge</td>
+<td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded font-bold text-xs">HDFCBANK</span></td>
+<td class="px-6 py-4 font-mono">₹1,512.20</td>
+<td class="px-6 py-4 italic text-slate-500">Breakaway Gap</td>
+<td class="px-6 py-4 text-right">4.5M <span class="text-[10px] text-green-500">(+120%)</span></td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-red-100 text-red-700 text-[10px] font-bold">
+<span class="size-1 bg-red-700 rounded-full"></span> STOP LOSS
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-default">
+<td class="px-6 py-4 text-slate-500 whitespace-nowrap">2023-11-14</td>
+<td class="px-6 py-4 font-medium text-primary">Swing Breakout</td>
+<td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded font-bold text-xs">INFY</span></td>
+<td class="px-6 py-4 font-mono">₹1,445.00</td>
+<td class="px-6 py-4 italic text-slate-500">Double Bottom</td>
+<td class="px-6 py-4 text-right">2.1M <span class="text-[10px] text-green-500">(+30%)</span></td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">
+<span class="size-1 bg-green-700 rounded-full"></span> TARGET HIT
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-default">
+<td class="px-6 py-4 text-slate-500 whitespace-nowrap">2023-11-10</td>
+<td class="px-6 py-4 font-medium text-primary">EMA Rebound</td>
+<td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded font-bold text-xs">BHARTIARTL</span></td>
+<td class="px-6 py-4 font-mono">₹920.40</td>
+<td class="px-6 py-4 italic text-slate-500">20-Day Bounce</td>
+<td class="px-6 py-4 text-right">1.5M <span class="text-[10px] text-slate-400">(-5%)</span></td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">
+<span class="size-1 bg-green-700 rounded-full"></span> TARGET HIT
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 border-t border-primary/5 flex items-center justify-between">
+<p class="text-xs text-slate-400">Showing 1 to 5 of 1,248 entries</p>
+<div class="flex gap-1">
+<button class="size-8 rounded border border-slate-200 flex items-center justify-center hover:bg-slate-50 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="size-8 rounded bg-primary text-white flex items-center justify-center font-bold text-xs shadow-sm">1</button>
+<button class="size-8 rounded border border-slate-200 flex items-center justify-center hover:bg-slate-50 font-bold text-xs">2</button>
+<button class="size-8 rounded border border-slate-200 flex items-center justify-center hover:bg-slate-50 font-bold text-xs">3</button>
+<button class="size-8 rounded border border-slate-200 flex items-center justify-center hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<footer class="mt-8 border-t border-primary/10 p-8 text-center bg-white">
+<p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-2">Platform powered by advanced quantitative algorithms</p>
+<p class="text-xs text-slate-500 max-w-2xl mx-auto italic">Disclaimer: Historical performance is not indicative of future results. All trades carry risk. Please consult with a certified financial advisor before making investment decisions.</p>
+</footer>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fundamental Analysis - Nilay's Scanner Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af35",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#201d12",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-tab { border-bottom: 3px solid #d4af35; color: #d4af35; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-primary/10 bg-white dark:bg-background-dark hidden md:flex flex-col sticky top-0 h-screen">
+<div class="p-6 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-8">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-100 text-sm font-bold leading-tight">Nilay's Scanner Hub</h1>
+<p class="text-primary text-xs font-medium">Gold Member</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-sm font-medium">Home</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-sm font-medium">Market</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium font-bold">Fundamentals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-medium">Portfolio</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-primary/10">
+<div class="flex items-center gap-3 px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl">
+<div class="size-8 rounded-full bg-slate-300" data-alt="User profile placeholder"></div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-xs font-bold truncate">Nilay Sharma</span>
+<span class="text-[10px] opacity-60">Pro Trader</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Header/Search -->
+<header class="sticky top-0 z-10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-bottom border-primary/10 px-6 py-4">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4 flex-1 max-w-2xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-background-light dark:bg-slate-800 border-none rounded-xl focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Search stocks (e.g. Reliance, HDFC, TCS)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end">
+<button class="p-2.5 rounded-xl bg-background-light dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2.5 rounded-xl bg-background-light dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto w-full p-6 space-y-8">
+<!-- Company Summary Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h2 class="text-3xl font-bold">Reliance Industries Ltd.</h2>
+<span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded">NSE: RELIANCE</span>
+</div>
+<p class="text-slate-500 text-sm">Energy, Petrochemicals, Retail, Entertainment and Digital Services</p>
+</div>
+<div class="text-right">
+<div class="text-2xl font-bold">₹2,945.60</div>
+<div class="text-green-600 text-sm font-medium flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            +1.45% (+₹42.10)
+                        </div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="border-b border-primary/10">
+<nav class="flex gap-8">
+<button class="pb-4 text-sm font-bold text-slate-400 hover:text-primary transition-colors">Overview</button>
+<button class="pb-4 text-sm font-bold active-tab">Analysis</button>
+<button class="pb-4 text-sm font-bold text-slate-400 hover:text-primary transition-colors">Financials</button>
+<button class="pb-4 text-sm font-bold text-slate-400 hover:text-primary transition-colors">Peers</button>
+</nav>
+</div>
+<!-- Analysis Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Key Financial Metrics Cards -->
+<div class="lg:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider mb-2">ROCE</p>
+<p class="text-xl font-bold text-primary">12.4%</p>
+<p class="text-[10px] text-green-600 mt-1">↑ 0.8% YoY</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider mb-2">ROE</p>
+<p class="text-xl font-bold text-primary">11.8%</p>
+<p class="text-[10px] text-green-600 mt-1">↑ 1.2% YoY</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider mb-2">Debt/Equity</p>
+<p class="text-xl font-bold text-primary">0.38</p>
+<p class="text-[10px] text-slate-400 mt-1">Ideal &lt; 1.0</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider mb-2">EPS (TTM)</p>
+<p class="text-xl font-bold text-primary">₹104.2</p>
+<p class="text-[10px] text-green-600 mt-1">↑ ₹8.4 YoY</p>
+</div>
+</div>
+<!-- Promoter Shareholding -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-primary/5 flex flex-col items-center">
+<h3 class="text-sm font-bold mb-4 self-start">Promoter Shareholding</h3>
+<div class="relative size-32 mb-4">
+<!-- SVG Pie Chart Visualization -->
+<svg class="size-full -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#f1f1f1" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#d4af35" stroke-dasharray="50.6 100" stroke-dashoffset="0" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#201d12" stroke-dasharray="25 100" stroke-dashoffset="-50.6" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#94a3b8" stroke-dasharray="24.4 100" stroke-dashoffset="-75.6" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="text-lg font-bold">50.6%</span>
+<span class="text-[8px] uppercase">Promoter</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-x-4 gap-y-2 w-full text-[10px]">
+<div class="flex items-center gap-2"><span class="size-2 rounded-full bg-primary"></span> Promoters (50.6%)</div>
+<div class="flex items-center gap-2"><span class="size-2 rounded-full bg-background-dark"></span> FII (25.0%)</div>
+<div class="flex items-center gap-2"><span class="size-2 rounded-full bg-slate-400"></span> DII &amp; Others (24.4%)</div>
+</div>
+</div>
+</div>
+<!-- Financial Tables Section -->
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold">Profit &amp; Loss Statement</h3>
+<div class="flex gap-2">
+<button class="text-xs px-3 py-1.5 rounded-lg bg-primary text-white font-medium">Quarterly</button>
+<button class="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 font-medium">Yearly</button>
+</div>
+</div>
+<div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-primary/5">
+<table class="w-full text-left text-sm border-collapse">
+<thead class="bg-primary/5 text-slate-500 uppercase text-[10px] tracking-wider font-bold">
+<tr>
+<th class="px-6 py-4">Narration</th>
+<th class="px-6 py-4">Mar 2021</th>
+<th class="px-6 py-4">Mar 2022</th>
+<th class="px-6 py-4">Mar 2023</th>
+<th class="px-6 py-4">Mar 2024</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">Sales (Cr)</td>
+<td class="px-6 py-4">466,924</td>
+<td class="px-6 py-4">699,962</td>
+<td class="px-6 py-4">877,835</td>
+<td class="px-6 py-4 font-bold">974,864</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">Expenses (Cr)</td>
+<td class="px-6 py-4">386,183</td>
+<td class="px-6 py-4">589,516</td>
+<td class="px-6 py-4">735,357</td>
+<td class="px-6 py-4">814,212</td>
+</tr>
+<tr class="bg-primary/5 hover:bg-primary/10 transition-colors">
+<td class="px-6 py-4 font-bold">Operating Profit</td>
+<td class="px-6 py-4">80,741</td>
+<td class="px-6 py-4">110,446</td>
+<td class="px-6 py-4">142,478</td>
+<td class="px-6 py-4 font-bold">160,652</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">OPM %</td>
+<td class="px-6 py-4">17%</td>
+<td class="px-6 py-4">16%</td>
+<td class="px-6 py-4">16%</td>
+<td class="px-6 py-4">16%</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">Net Profit (Cr)</td>
+<td class="px-6 py-4">49,128</td>
+<td class="px-6 py-4">60,705</td>
+<td class="px-6 py-4">66,702</td>
+<td class="px-6 py-4 font-bold">73,670</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Secondary Financials Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Balance Sheet Summary -->
+<div class="space-y-4">
+<h3 class="text-md font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+                            Balance Sheet Snippet
+                        </h3>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5 space-y-3">
+<div class="flex justify-between text-sm py-2 border-b border-primary/5">
+<span class="text-slate-500">Share Capital</span>
+<span class="font-bold">₹6,765 Cr</span>
+</div>
+<div class="flex justify-between text-sm py-2 border-b border-primary/5">
+<span class="text-slate-500">Reserves</span>
+<span class="font-bold">₹707,316 Cr</span>
+</div>
+<div class="flex justify-between text-sm py-2 border-b border-primary/5">
+<span class="text-slate-500">Borrowings</span>
+<span class="font-bold">₹313,975 Cr</span>
+</div>
+<div class="flex justify-between text-sm py-2">
+<span class="text-slate-500">Total Assets</span>
+<span class="font-bold text-primary">₹1,712,414 Cr</span>
+</div>
+</div>
+</div>
+<!-- Cash Flow Summary -->
+<div class="space-y-4">
+<h3 class="text-md font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">payments</span>
+                            Cash Flow Statement
+                        </h3>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5 space-y-3">
+<div class="flex justify-between text-sm py-2 border-b border-primary/5">
+<span class="text-slate-500">Cash from Operating Activity</span>
+<span class="font-bold text-green-600">+₹114,210 Cr</span>
+</div>
+<div class="flex justify-between text-sm py-2 border-b border-primary/5">
+<span class="text-slate-500">Cash from Investing Activity</span>
+<span class="font-bold text-red-500">-₹123,450 Cr</span>
+</div>
+<div class="flex justify-between text-sm py-2 border-b border-primary/5">
+<span class="text-slate-500">Cash from Financing Activity</span>
+<span class="font-bold text-green-600">+₹9,840 Cr</span>
+</div>
+<div class="flex justify-between text-sm py-2">
+<span class="text-slate-500">Net Cash Flow</span>
+<span class="font-bold">₹600 Cr</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto border-t border-primary/10 p-8 text-center bg-white dark:bg-background-dark">
+<p class="text-xs text-slate-500">© 2024 Nilay's Scanner Hub Financial Services. Data provided for educational purposes only. Investing in securities is subject to market risks.</p>
+</footer>
+</main>
+</div>
+</body></html>
