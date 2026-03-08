@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Trade_with_Nilay — Nilay's Scanner Hub</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Trade_with_Nilay — AI Chatbot</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -18,15 +18,13 @@
                         "background-light": "#f8f7f6",
                         "background-dark": "#201d12",
                     },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
+                    fontFamily: { "display": ["Inter", "sans-serif"] },
                     borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
                 },
             },
         }
     </script>
-<style>
+    <style>
         body { font-family: 'Inter', sans-serif; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -34,180 +32,70 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
 <div class="flex h-screen overflow-hidden">
-<!-- Sidebar Navigation -->
-<aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col">
-<div class="p-6 flex items-center gap-3">
-<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
-<span class="material-symbols-outlined">trending_up</span>
+    <aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col">
+        <div class="p-6 flex items-center gap-3">
+            <div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
+                <span class="material-symbols-outlined">trending_up</span>
+            </div>
+            <div class="flex flex-col">
+                <h1 class="text-slate-900 dark:text-slate-100 text-sm font-bold leading-tight">Trade_with_Nilay</h1>
+                <p class="text-slate-500 dark:text-slate-400 text-xs font-normal">Premium Trading AI</p>
+            </div>
+        </div>
+        <nav class="flex-1 px-4 space-y-2 py-4">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="index.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="text-sm font-medium">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="screener.html">
+                <span class="material-symbols-outlined">filter_alt</span>
+                <span class="text-sm font-medium">Screener</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="scanner-hub.html">
+                <span class="material-symbols-outlined">hub</span>
+                <span class="text-sm font-medium">Scanner Hub</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary transition-colors" href="ai-chat.html">
+                <span class="material-symbols-outlined font-fill">chat_bubble</span>
+                <span class="text-sm font-medium">AI Chat</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="sector-rotation.html">
+                <span class="material-symbols-outlined">sync_alt</span>
+                <span class="text-sm font-medium">Sector Rotation</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="news.html">
+                <span class="material-symbols-outlined">newspaper</span>
+                <span class="text-sm font-medium">News</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-background-dark overflow-hidden">
+        <header class="h-16 flex items-center justify-between px-8 border-b border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">auto_awesome</span>
+                <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Nilay's AI Analyst</h2>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto no-scrollbar p-6">
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-8 shadow-sm">
+                    <h4 class="font-bold mb-4">How can I help your trade today?</h4>
+                    <div class="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
+                        <p>Ask me about fundamentals, technical patterns, or sector trends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-background-dark">
+            <div class="max-w-4xl mx-auto flex items-center gap-4">
+                <textarea class="w-full pl-4 pr-12 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl resize-none" placeholder="Ask Nilay AI..." rows="1"></textarea>
+                <button class="p-3 bg-primary text-white rounded-lg"><span class="material-symbols-outlined">send</span></button>
+            </div>
+        </div>
+    </main>
 </div>
-<div class="flex flex-col">
-<h1 class="text-slate-900 dark:text-slate-100 text-sm font-bold leading-tight">Trade_with_Nilay</h1>
-<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">Premium Trading AI</p>
-</div>
-</div>
-<nav class="flex-1 px-4 space-y-2 py-4">
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="ai-chat.html">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-sm font-medium">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
-<span class="material-symbols-outlined font-fill">chat_bubble</span>
-<span class="text-sm font-medium">AI Chat</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined">pie_chart</span>
-<span class="text-sm font-medium">Portfolios</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined">settings</span>
-<span class="text-sm font-medium">Settings</span>
-</a>
-</nav>
-<div class="p-4 mt-auto border-t border-slate-100 dark:border-slate-800">
-<div class="bg-primary/5 rounded-xl p-4">
-<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Pro Plan</p>
-<p class="text-xs text-slate-600 dark:text-slate-400 mb-3">Unlock advanced AI insights and real-time alerts.</p>
-<button class="w-full py-2 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/90 transition-all">Upgrade Now</button>
-</div>
-</div>
-</aside>
-<!-- Main Content -->
-<main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-background-dark overflow-hidden">
-<!-- Header -->
-<header class="h-16 flex items-center justify-between px-8 border-b border-slate-100 dark:border-slate-800">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">auto_awesome</span>
-<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Trade_with_Nilay — Nilay's Scanner Hub</h2>
-</div>
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-full">
-<span class="size-2 rounded-full bg-green-500"></span>
-<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Market Open</span>
-</div>
-<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700" data-alt="User profile placeholder"></div>
-</div>
-</header>
-<!-- Scrollable Content -->
-<div class="flex-1 overflow-y-auto no-scrollbar">
-<div class="max-w-4xl mx-auto px-6 py-8">
-<!-- Search Section -->
-<div class="mb-10 text-center">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">How can I help your trade today?</h3>
-<div class="relative max-w-2xl mx-auto">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-<input class="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl focus:ring-2 focus:ring-primary/50 text-slate-900 dark:text-slate-100" placeholder="Search stock (e.g. RELIANCE, TCS)" type="text"/>
-</div>
-</div>
-<!-- Quick Actions Grid -->
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-<button class="flex flex-col items-start p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 hover:bg-primary/5 transition-all text-left group">
-<div class="p-2 rounded-lg bg-primary/10 text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined">analytics</span>
-</div>
-<p class="font-bold text-sm text-slate-900 dark:text-slate-100">Analyse fundamentals</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">Core financial metrics</p>
-</button>
-<button class="flex flex-col items-start p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 hover:bg-primary/5 transition-all text-left group">
-<div class="p-2 rounded-lg bg-primary/10 text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined">payments</span>
-</div>
-<p class="font-bold text-sm text-slate-900 dark:text-slate-100">Analyse P&amp;L</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">Profit and revenue trends</p>
-</button>
-<button class="flex flex-col items-start p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 hover:bg-primary/5 transition-all text-left group">
-<div class="p-2 rounded-lg bg-primary/10 text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined">account_balance</span>
-</div>
-<p class="font-bold text-sm text-slate-900 dark:text-slate-100">Analyse balance sheet</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">Assets vs Liabilities</p>
-</button>
-<button class="flex flex-col items-start p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 hover:bg-primary/5 transition-all text-left group">
-<div class="p-2 rounded-lg bg-primary/10 text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined">currency_exchange</span>
-</div>
-<p class="font-bold text-sm text-slate-900 dark:text-slate-100">Analyse cashflow</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">Operational liquidity</p>
-</button>
-<button class="flex flex-col items-start p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 hover:bg-primary/5 transition-all text-left group">
-<div class="p-2 rounded-lg bg-primary/10 text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined">groups</span>
-</div>
-<p class="font-bold text-sm text-slate-900 dark:text-slate-100">Analyse shareholding</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">Promoter and FII trends</p>
-</button>
-<button class="flex flex-col items-start p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 hover:bg-primary/5 transition-all text-left group">
-<div class="p-2 rounded-lg bg-primary/10 text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined">calculate</span>
-</div>
-<p class="font-bold text-sm text-slate-900 dark:text-slate-100">Analyse ratios</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">Valuation &amp; Efficiency</p>
-</button>
-</div>
-<!-- AI Analysis Output Area (Markdown Sample) -->
-<div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-8 shadow-sm">
-<div class="flex items-center gap-3 mb-6">
-<div class="size-8 rounded-lg bg-primary flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-sm">auto_awesome</span>
-</div>
-<h4 class="font-bold text-slate-900 dark:text-slate-100">Analysis: RELIANCE INDUSTRIES LTD</h4>
-</div>
-<div class="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-4">
-<h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b pb-2 border-slate-100 dark:border-slate-800">Executive Summary</h2>
-<p>Reliance Industries exhibits a strong bullish momentum. The stock is currently trading above its 200-day EMA, indicating long-term strength in the retail and digital segments.</p>
-<h3 class="text-lg font-semibold text-primary">Fundamental Overview</h3>
-<ul class="list-disc pl-5 space-y-2">
-<li><strong>Market Cap:</strong> Robust position as India's largest company.</li>
-<li><strong>P/E Ratio:</strong> 25.4 (Industry average: 22.1) - Trading at a slight premium due to growth in Jio and Retail.</li>
-<li><strong>Debt to Equity:</strong> 0.42 - Manageable levels with strong operational cash flow.</li>
-</ul>
-<h3 class="text-lg font-semibold text-primary">Financial Highlights (Last Quarter)</h3>
-<div class="grid grid-cols-2 gap-4 my-4">
-<div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-<p class="text-xs text-slate-500 uppercase">Revenue</p>
-<p class="text-lg font-bold text-slate-900 dark:text-slate-100">₹2.32L Cr (+11%)</p>
-</div>
-<div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-<p class="text-xs text-slate-500 uppercase">Net Profit</p>
-<p class="text-lg font-bold text-slate-900 dark:text-slate-100">₹19,299 Cr (+9.5%)</p>
-</div>
-</div>
-<h3 class="text-lg font-semibold text-primary">AI Recommendation</h3>
-<p class="italic text-slate-600 dark:text-slate-400">"The convergence of green hydrogen initiatives and continued 5G expansion provides a solid foundation for a 'Moderate Buy' rating with a target price range of ₹3,100 - ₹3,250 over the next 6 months."</p>
-</div>
-<div class="mt-8 flex items-center gap-2 border-t border-slate-50 dark:border-slate-800 pt-6">
-<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-bold hover:bg-primary hover:text-white transition-all">
-<span class="material-symbols-outlined text-sm">download</span>
-                                Download PDF Report
-                            </button>
-<button class="flex items-center gap-2 px-4 py-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm font-medium transition-all">
-<span class="material-symbols-outlined text-sm">share</span>
-                                Share
-                            </button>
-</div>
-</div>
-</div>
-</div>
-<!-- Chat Input Area -->
-<div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-background-dark">
-<div class="max-w-4xl mx-auto flex items-center gap-4">
-<div class="flex-1 relative flex items-center">
-<textarea class="w-full pl-4 pr-12 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary resize-none text-slate-900 dark:text-slate-100" placeholder="Ask Nilay about any stock or strategy..." rows="1"></textarea>
-<button class="absolute right-2 p-1.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all">
-<span class="material-symbols-outlined">send</span>
-</button>
-</div>
-<button class="p-3 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all">
-<span class="material-symbols-outlined">mic</span>
-</button>
-<button class="p-3 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all">
-<span class="material-symbols-outlined">attach_file</span>
-</button>
-</div>
-<p class="text-center text-[10px] text-slate-400 mt-2">Nilay AI can make mistakes. Verify critical financial data before trading.</p>
-</div>
-</main>
-</div>
-</body></html>
+</body>
+</html>

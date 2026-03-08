@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -24,244 +23,106 @@
             },
         }
     </script>
-<title>Trade_with_Nilay - Nilay's Scanner Hub</title>
+    <title>Trade_with_Nilay - News & Events</title>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
 <div class="flex h-screen overflow-hidden">
-<!-- Sidebar Navigation -->
-<aside class="w-64 bg-white dark:bg-zinc-900 border-r border-slate-200 dark:border-zinc-800 flex flex-col justify-between p-6">
-<div class="flex flex-col gap-8">
-<div class="flex gap-3 items-center">
-<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
-<span class="material-symbols-outlined">trending_up</span>
-</div>
-<div class="flex flex-col">
-<h1 class="text-slate-900 dark:text-white text-sm font-bold leading-tight">Trade_with_Nilay</h1>
-<p class="text-slate-500 text-xs">Premium Trading Insight</p>
-</div>
-</div>
-<nav class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="news.html">
-<span class="material-symbols-outlined text-[20px]">dashboard</span>
-<span class="text-sm font-medium">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="#">
-<span class="material-symbols-outlined text-[20px]">bar_chart</span>
-<span class="text-sm font-medium">Markets</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
-<span class="material-symbols-outlined text-[20px] fill-current">newspaper</span>
-<span class="text-sm font-medium">Nilay's Scanner Hub</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="#">
-<span class="material-symbols-outlined text-[20px]">work</span>
-<span class="text-sm font-medium">Portfolio</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="#">
-<span class="material-symbols-outlined text-[20px]">settings</span>
-<span class="text-sm font-medium">Settings</span>
-</a>
-</nav>
-</div>
-<div class="flex flex-col gap-4">
-<button class="w-full bg-primary text-slate-900 font-bold py-2.5 rounded-lg text-sm flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+    <aside class="w-64 bg-white dark:bg-zinc-900 border-r border-slate-200 dark:border-zinc-800 flex flex-col justify-between p-6">
+        <div class="flex flex-col gap-8">
+            <div class="flex gap-3 items-center">
+                <div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined">trending_up</span>
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="text-slate-900 dark:text-white text-sm font-bold leading-tight">Trade_with_Nilay</h1>
+                    <p class="text-slate-500 text-xs">Premium Trading Insight</p>
+                </div>
+            </div>
+            <nav class="flex flex-col gap-1">
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="index.html">
+                    <span class="material-symbols-outlined text-[20px]">dashboard</span>
+                    <span class="text-sm font-medium">Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="screener.html">
+                    <span class="material-symbols-outlined text-[20px]">filter_alt</span>
+                    <span class="text-sm font-medium">Screener</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="scanner-hub.html">
+                    <span class="material-symbols-outlined text-[20px]">hub</span>
+                    <span class="text-sm font-medium">Nilay's Scanner Hub</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="fundamentals.html">
+                    <span class="material-symbols-outlined text-[20px]">analytics</span>
+                    <span class="text-sm font-medium">Fundamental</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="sector-rotation.html">
+                    <span class="material-symbols-outlined text-[20px]">sync_alt</span>
+                    <span class="text-sm font-medium">Sector Rotation</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="news.html">
+                    <span class="material-symbols-outlined text-[20px] fill-current">newspaper</span>
+                    <span class="text-sm font-medium">News & Events</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-lg" href="ai-chat.html">
+                    <span class="material-symbols-outlined text-[20px]">smart_toy</span>
+                    <span class="text-sm font-medium">AI Chatbot</span>
+                </a>
+            </nav>
+        </div>
+        <div class="flex flex-col gap-4">
+            <button class="w-full bg-primary text-slate-900 font-bold py-2.5 rounded-lg text-sm flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">workspace_premium</span>
                 Upgrade to Pro
             </button>
-</div>
-</aside>
-<!-- Main Content Area -->
-<main class="flex-1 flex flex-col overflow-y-auto">
-<!-- Header -->
-<header class="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-slate-200 dark:border-zinc-800 px-8 py-4 flex items-center justify-between">
-<div class="flex items-center gap-4">
-<h2 class="text-xl font-bold tracking-tight">Nilay's Scanner Hub</h2>
-</div>
-<div class="flex items-center gap-6">
-<div class="relative w-64">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
-<input class="w-full bg-slate-100 dark:bg-zinc-800 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary" placeholder="Search markets..." type="text"/>
-</div>
-<div class="flex gap-2">
-<button class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-slate-400 hover:text-primary">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-slate-400 hover:text-primary">
-<span class="material-symbols-outlined">account_circle</span>
-</button>
-</div>
-</div>
-</header>
-<!-- Categories Scroller -->
-<div class="px-8 py-4 bg-white dark:bg-zinc-900 overflow-x-auto no-scrollbar border-b border-slate-100 dark:border-zinc-800">
-<div class="flex gap-2 min-w-max">
-<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-primary text-slate-900">All News</button>
-<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-zinc-800 hover:bg-primary/20 transition-colors">Company News</button>
-<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-zinc-800 hover:bg-primary/20 transition-colors">Company Earnings</button>
-<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-zinc-800 hover:bg-primary/20 transition-colors">Economy Market Pulse</button>
-<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-zinc-800 hover:bg-primary/20 transition-colors">Economy India Market</button>
-<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-zinc-800 hover:bg-primary/20 transition-colors">Economy Inflation</button>
-<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-zinc-800 hover:bg-primary/20 transition-colors">IPO Analysis</button>
-</div>
-</div>
-<!-- Featured Story Section -->
-<div class="px-8 py-6 @container">
-<div class="mb-8">
-<h3 class="text-2xl font-bold mb-1">Market Insights</h3>
-<p class="text-slate-500 text-sm">Stay updated with the latest financial trends and analysis</p>
-</div>
-<div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 @xl:flex group">
-<div class="@xl:w-2/5 h-64 @xl:h-auto overflow-hidden">
-<div class="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Modern stock market building and financial district" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqeSpGDURiemq29YvPpYXnXltXUeJco1KGkjA7SgCagBLKbAo_PKwWyMIbJW8CmfYyU6mAolK4Gv0ncwo6Hx0If6GnK13EHcngcsEDkBIrHmzO7Yy4U_C-QarGR4bffDsGRN2ljgHx0Bv4vuSjdP38iXMVnJQZE6vD-JipSWpGnAmwmho4xhuvQ3rVN4iE3J5IB55Ey8yXv4ATITGnqlBS_qg5nY9seuibykZttfuClaks60ogQckHQ4IKAyDV2NoDluCaK_5LZ2E");'></div>
-</div>
-<div class="p-8 @xl:w-3/5 flex flex-col justify-between">
-<div>
-<span class="text-primary text-xs font-bold tracking-widest uppercase">Economy India Market</span>
-<h4 class="text-2xl font-bold mt-2 mb-4 group-hover:text-primary transition-colors">RBI Maintains Repo Rate: Deep Dive into the Impact on Home Loans &amp; Real Estate</h4>
-<p class="text-slate-600 dark:text-slate-400 line-clamp-3 mb-6">
-                            The Monetary Policy Committee (MPC) has decided to keep the repo rates unchanged for the seventh consecutive time. While this provides stability for borrowers, we analyze the hidden nuances of this policy on the mid-term liquidity of Indian banks and the broader real estate sector performance forecast for Q3.
-                        </p>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="size-8 rounded-full bg-slate-200" data-alt="Author portrait Nilay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2PJk1u3h5F11uBJceopZ9-jbkHGTWuit2HFsaW_Dlm93t1D6i0a74N1_8h7kYsZl32t3694TtILJOtXBisuyRfIVFMoXyuRxhwfP6Rl9svHo8srDrEGLWSJd-wRVxkLj3vrOIJFA6J4rbN3zAj3BCz8PlFiE5FkuhYXRBmUuzRGwySSVuz9sKK1LtSqcC8hSRXEHVhE9sN36nAam75Wf6boSpzXzdZ2jPrkK_fjZlMsL9AhGbHzLGRIYIcJ06WGnp-iEF8f6UH9E'); background-size: cover;"></div>
-<span class="text-sm font-medium">Nilay Sharma • 2 hours ago</span>
-</div>
-<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
-                            Read Full Report <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- News Grid -->
-<div class="px-8 pb-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-<!-- News Card 1: IPO -->
-<div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 flex flex-col group cursor-pointer">
-<div class="h-48 overflow-hidden relative">
-<div class="absolute top-4 left-4 z-10 bg-white/90 dark:bg-zinc-900/90 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-slate-900 dark:text-white border border-slate-200 dark:border-zinc-700">IPO Analysis</div>
-<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-500" data-alt="Digital representation of IPO launching" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKuq3hl_RuGfW6S5vu52vfsynm9UbQYUpCQAMgO7KIoZms3T214bHJ-qjV32KH5sH_sK-2OomUCX_sIxpk-yX28NyIErmOAzA3kY8i6VIwyH4ZKaeNnrQ7CzMjzl8CbZdmzEAbuGQC9BMoYNWBKtiNoimPMoQQDIbThstY3BEUaXzlhioVSLPhL3So4gk0EOPIPIQuE5PZ8-XCf66ymQTulWb6a8DbAgPVKwQvZwmUX3AFsz5uXnN7Nlf_Q9RsXPnghj-J-Wfao9E");'></div>
-</div>
-<div class="p-5 flex flex-1 flex-col justify-between">
-<div>
-<h5 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Tech-Giant IPO: Overvaluation Risks or Hidden Growth Gem?</h5>
-<p class="text-slate-500 text-sm line-clamp-2 mb-4">A critical look at the upcoming SaaS IPO that has the market split. Subscription metrics vs cash burn ratios.</p>
-</div>
-<div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800">
-<span class="text-xs text-slate-400">4 hours ago</span>
-<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">bookmark</span>
-</div>
-</div>
-</div>
-<!-- News Card 2: Earnings -->
-<div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 flex flex-col group cursor-pointer">
-<div class="h-48 overflow-hidden relative">
-<div class="absolute top-4 left-4 z-10 bg-white/90 dark:bg-zinc-900/90 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-slate-900 dark:text-white border border-slate-200 dark:border-zinc-700">Company Earnings</div>
-<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-500" data-alt="Business growth chart graphics" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTkQIZMjrMaI40oxvqmVIbAfwnc_Tzpv1dhjxemjJmkfWfBWLdjUKqRRq2zA69Cx_8NBRVJFfsHCGTEwwet4q9KJKUon2UnqUORUFaZrwWegVYCknIvWzMSrwWlaJ1nQCGQWGKCU2auwrboBPVjq0eO_g4jQO03YsQsKBGAFsdjuJKbmg6dLoubBgmDcM2EUibtIr3lEAXewLDiOfQval2J04Al70ON5zZo62nucNeZthInwtNrhV9_iq_MU4_QYCGu3Mhbl0Zljc");'></div>
-</div>
-<div class="p-5 flex flex-1 flex-col justify-between">
-<div>
-<h5 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Reliance Q1 Results: Retail Surge Offsets Refining Lag</h5>
-<p class="text-slate-500 text-sm line-clamp-2 mb-4">Deeper analysis of the segment-wise performance. Why the market reacted positively despite EBITDA miss.</p>
-</div>
-<div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800">
-<span class="text-xs text-slate-400">6 hours ago</span>
-<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">bookmark</span>
-</div>
-</div>
-</div>
-<!-- News Card 3: Market Pulse -->
-<div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 flex flex-col group cursor-pointer">
-<div class="h-48 overflow-hidden relative">
-<div class="absolute top-4 left-4 z-10 bg-white/90 dark:bg-zinc-900/90 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-slate-900 dark:text-white border border-slate-200 dark:border-zinc-700">Economy Market Pulse</div>
-<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-500" data-alt="Global currency trading and coins" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCTPs9_A3-pXobAVczPk7tODJNWjVh2oCffFKtwCc89tZypw5Y1BbqXKI1gyghvrV2pG9oGdd0j_6klT1w-hQRRdfIbo2f2HZ5WYKHyoXHNCireCZLNxaPXcnOtHdpj_wsZtx2OnnR7gtBMfqUDDwCJolU0I9vn5IIt1-OHmNmBxBG2rceIEb9FJAw8HxPaf_j4WItApGxkAQ0r-0JP3vF8LasN3GEncwQNVDSycDXCF2t6juXLSp7YCl8S_YV_Hzejv-lXc7h98HE");'></div>
-</div>
-<div class="p-5 flex flex-1 flex-col justify-between">
-<div>
-<h5 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">FIIs Turn Net Buyers: Will the Nifty Rally Hold at 24k?</h5>
-<p class="text-slate-500 text-sm line-clamp-2 mb-4">Foreign institutional investors are returning to EMs. Here's what the options data suggests for the expiry week.</p>
-</div>
-<div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800">
-<span class="text-xs text-slate-400">8 hours ago</span>
-<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">bookmark</span>
-</div>
-</div>
-</div>
-<!-- News Card 4: Inflation -->
-<div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 flex flex-col group cursor-pointer">
-<div class="h-48 overflow-hidden relative">
-<div class="absolute top-4 left-4 z-10 bg-white/90 dark:bg-zinc-900/90 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-slate-900 dark:text-white border border-slate-200 dark:border-zinc-700">Economy Inflation</div>
-<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-500" data-alt="Financial inflation symbol with arrows" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8xUqMgurUOyw-ukZNua-4qD3sGUft5Bicj8bowBJQK_-HKgo-_4aYSvlUGFaCqz517cNiu7ZU9s86F6xKeN7hHxYlW8gDPIMj35D3b2_TdtfGQyeuHF6S9N50Y8HhU43NRbOD_u54RbLRFWbQoKObD-E6lR-q7iFxdy5extN3b193WAv5k7nXpGzZdaBEhYwR66f4jIw01V4nE92k8LiwOid4pOx5VOs2ioDwHceqF7C_0uvpO39QTiTrII5434QJLCTK_6-dqAM");'></div>
-</div>
-<div class="p-5 flex flex-1 flex-col justify-between">
-<div>
-<h5 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">CPI Data Decoded: Food Inflation Eases But Fuel Drags</h5>
-<p class="text-slate-500 text-sm line-clamp-2 mb-4">A granular look at the latest consumer price index numbers and what it means for the common man's wallet.</p>
-</div>
-<div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800">
-<span class="text-xs text-slate-400">12 hours ago</span>
-<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">bookmark</span>
-</div>
-</div>
-</div>
-<!-- News Card 5: Company News -->
-<div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 flex flex-col group cursor-pointer">
-<div class="h-48 overflow-hidden relative">
-<div class="absolute top-4 left-4 z-10 bg-white/90 dark:bg-zinc-900/90 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-slate-900 dark:text-white border border-slate-200 dark:border-zinc-700">Company News</div>
-<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-500" data-alt="Corporate office headquarters building" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACVREbplU0_nVQQg0hkT0U_wBr8MqIyZoNjvqQLJultCfw7ac6OVQMSHyWzdEY54X881fwxYcnH_LkgzvaHY1af-HDi0KW-3Mc3iQTQDLFmEhqfTyF1G43AM9xiEibziu7AsE98zzxp9rR0GB1aRRXIcInu1A7kuWwL9XKieu_N-6OvOcRAsJwCZRVOAtt5G8tsAsyHmsjg3u2JCqbJ4P6YHBlOTMCepjXl4oRxwLNuMCaSUF1yNCI_m_aqUzcJgJX4Tmo1e-5npI");'></div>
-</div>
-<div class="p-5 flex flex-1 flex-col justify-between">
-<div>
-<h5 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Adani Power Wins Major Smart Metering Contract</h5>
-<p class="text-slate-500 text-sm line-clamp-2 mb-4">Execution timelines and revenue visibility analysis for the new ₹5,000 crore deal across three states.</p>
-</div>
-<div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800">
-<span class="text-xs text-slate-400">Yesterday</span>
-<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">bookmark</span>
-</div>
-</div>
-</div>
-<!-- News Card 6: Market Pulse -->
-<div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 flex flex-col group cursor-pointer">
-<div class="h-48 overflow-hidden relative">
-<div class="absolute top-4 left-4 z-10 bg-white/90 dark:bg-zinc-900/90 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-slate-900 dark:text-white border border-slate-200 dark:border-zinc-700">Economy Market Pulse</div>
-<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract financial background with blue charts" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZhthuBm0KAQ9Okdjc7Mm663STeyB-NTOT3CbokG4XMlOiGRm0ToosPdkt2bkoQVHdDPr07h2PhDjOv1th2dg4zDJ53_Vvl1tbmyQRN58Q9qDP2nJgRaJufgMtfkoyo6cuz8xnh7LMLK1wFmrWIaZRXmgnC_ANbkN54hrRCHWuM-gjZ7hhkO-5KMct_aths5zeBjOMTsw3bI4ep-9G5qIKybr1QLS0N9Ae1Zs1HXkFQ86xxnlyTjq9vzKY_8t37fRw1xvuYwZieLI");'></div>
-</div>
-<div class="p-5 flex flex-1 flex-col justify-between">
-<div>
-<h5 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">US Fed Minutes: Hawkish Tone Spooks Global Tech Stocks</h5>
-<p class="text-slate-500 text-sm line-clamp-2 mb-4">How the Nasdaq sell-off might impact Nifty IT and large-cap tech players in the coming sessions.</p>
-</div>
-<div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-zinc-800">
-<span class="text-xs text-slate-400">Yesterday</span>
-<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">bookmark</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Pagination -->
-<div class="px-8 pb-12 flex items-center justify-center gap-2">
-<button class="size-10 rounded-lg flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-slate-400 hover:text-primary hover:border-primary">
-<span class="material-symbols-outlined">chevron_left</span>
-</button>
-<button class="size-10 rounded-lg flex items-center justify-center bg-primary text-slate-900 font-bold">1</button>
-<button class="size-10 rounded-lg flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-slate-400 hover:text-primary hover:border-primary">2</button>
-<button class="size-10 rounded-lg flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-slate-400 hover:text-primary hover:border-primary">3</button>
-<span class="px-2 text-slate-400">...</span>
-<button class="size-10 rounded-lg flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-slate-400 hover:text-primary hover:border-primary">12</button>
-<button class="size-10 rounded-lg flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-slate-400 hover:text-primary hover:border-primary">
-<span class="material-symbols-outlined">chevron_right</span>
-</button>
-</div>
-</main>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-y-auto">
+        <header class="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-slate-200 dark:border-zinc-800 px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <h2 class="text-xl font-bold tracking-tight">Market News & Events</h2>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative w-64">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+                    <input class="w-full bg-slate-100 dark:bg-zinc-800 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary" placeholder="Search news..." type="text"/>
+                </div>
+            </div>
+        </header>
+
+        <div class="px-8 py-6 @container">
+            <div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 @xl:flex group">
+                <div class="@xl:w-2/5 h-64 @xl:h-auto overflow-hidden">
+                    <div class="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-105 transition-transform duration-500" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqeSpGDURiemq29YvPpYXnXltXUeJco1KGkjA7SgCagBLKbAo_PKwWyMIbJW8CmfYyU6mAolK4Gv0ncwo6Hx0If6GnK13EHcngcsEDkBIrHmzO7Yy4U_C-QarGR4bffDsGRN2ljgHx0Bv4vuSjdP38iXMVnJQZE6vD-JipSWpGnAmwmho4xhuvQ3rVN4iE3J5IB55Ey8yXv4ATITGnqlBS_qg5nY9seuibykZttfuClaks60ogQckHQ4IKAyDV2NoDluCaK_5LZ2E");'></div>
+                </div>
+                <div class="p-8 @xl:w-3/5 flex flex-col justify-between">
+                    <div>
+                        <span class="text-primary text-xs font-bold tracking-widest uppercase">Economy India</span>
+                        <h4 class="text-2xl font-bold mt-2 mb-4 group-hover:text-primary transition-colors">RBI Maintains Repo Rate: Impact Analysis</h4>
+                        <p class="text-slate-600 dark:text-slate-400 line-clamp-3 mb-6">Analyzing the hidden nuances of the latest policy on mid-term liquidity and the broader real estate sector performance forecast.</p>
+                    </div>
+                    <button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                        Read Full Report <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-8 pb-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-slate-200 dark:border-zinc-800 p-5 group cursor-pointer">
+                <h5 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Tech-Giant IPO: Overvaluation Risks?</h5>
+                <p class="text-slate-500 text-sm line-clamp-2">A critical look at the upcoming SaaS IPO metrics vs cash burn ratios.</p>
+                <div class="mt-4 pt-4 border-t border-slate-100 dark:border-zinc-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400">4 hours ago</span>
+                    <span class="material-symbols-outlined text-slate-300">bookmark</span>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
 <style>
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
-</body></html>
+</body>
+</html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Sector Rotation Analysis - Trade_with_Nilay</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Sector Rotation Analysis - Trade_with_Nilay</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -18,15 +18,13 @@
                         "background-light": "#f8f7f6",
                         "background-dark": "#201d12",
                     },
-                    fontFamily: {
-                        "display": ["Inter"]
-                    },
+                    fontFamily: { "display": ["Inter"] },
                     borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
                 },
             },
         }
     </script>
-<style>
+    <style>
         body { font-family: 'Inter', sans-serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .active-nav { border-left: 4px solid #d4af35; background-color: rgba(212, 175, 53, 0.1); }
@@ -34,268 +32,71 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
 <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
-<!-- Top Header -->
-<header class="flex items-center justify-between whitespace-nowrap border-b border-primary/10 bg-white dark:bg-background-dark px-6 py-3 lg:px-10">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-2 text-primary">
-<span class="material-symbols-outlined text-3xl font-bold">query_stats</span>
-<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Trade_with_Nilay</h2>
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-primary/10 bg-white dark:bg-background-dark px-6 py-3 lg:px-10">
+        <div class="flex items-center gap-8">
+            <div class="flex items-center gap-2 text-primary">
+                <span class="material-symbols-outlined text-3xl font-bold">query_stats</span>
+                <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Trade_with_Nilay</h2>
+            </div>
+        </div>
+        <div class="flex gap-4 items-center">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDb7ZGSVgMc_Xnr9LX-FP583bmr4l3nFG2fGsA8K2zODPfr1ENSaV7W7mCYOoiX1kxLCTDTRo6ofZzf_I5f25pMyK-MQKzhvEGE6zsCt-ZNlUBEDe3_upWcbXGmA2k0j8fYCKLdqSUhP0pSScftwxyFGCMkAcRPcnV3s8Vv--daoB8-Dm2lSDK0qBfPB5gcttokx1NPTjvr4GM6LhkbfAvgWBa3kaSDzQOiRklShMsu9150Q3BuI9WKFvROW8OHcKrzG_MvFJ003WQ");'></div>
+        </div>
+    </header>
+
+    <div class="flex flex-1">
+        <aside class="hidden lg:flex w-72 flex-col border-r border-primary/10 bg-white dark:bg-background-dark p-4 gap-6">
+            <nav class="flex flex-col gap-1">
+                <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="index.html">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="text-sm font-medium">Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="screener.html">
+                    <span class="material-symbols-outlined">filter_alt</span>
+                    <span class="text-sm font-medium">Screener</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="scanner-hub.html">
+                    <span class="material-symbols-outlined">target</span>
+                    <span class="text-sm font-medium">Nilay's Scanner Hub</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="fundamentals.html">
+                    <span class="material-symbols-outlined">analytics</span>
+                    <span class="text-sm font-medium">Fundamental</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg active-nav text-primary transition-all" href="sector-rotation.html">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">pie_chart</span>
+                    <span class="text-sm font-semibold">Sector Rotation</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="news.html">
+                    <span class="material-symbols-outlined">newspaper</span>
+                    <span class="text-sm font-medium">News & Events</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="ai-chat.html">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <span class="text-sm font-medium">AI Chatbot</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 flex flex-col p-6 overflow-y-auto">
+            <h1 class="text-3xl font-black mb-2">Sector Rotation Analysis</h1>
+            <p class="text-slate-500 mb-8">Real-time relative strength across industries.</p>
+
+            <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 mb-8 shadow-sm">
+                <h3 class="font-bold text-lg mb-8">Performance by Industry (%)</h3>
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-bold"><span>IT</span><span class="text-green-500">+4.82%</span></div>
+                        <div class="w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg"><div class="h-full bg-primary rounded" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-bold"><span>Financials</span><span class="text-green-500">+2.15%</span></div>
+                        <div class="w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg"><div class="h-full bg-primary/70 rounded" style="width: 62%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 </div>
-<label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
-<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden">
-<div class="text-slate-400 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4">
-<span class="material-symbols-outlined text-xl">search</span>
-</div>
-<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-0 h-full placeholder:text-slate-400 px-4 pl-2 text-sm" placeholder="Search markets..." value=""/>
-</div>
-</label>
-</div>
-<div class="flex flex-1 justify-end gap-4 lg:gap-8 items-center">
-<div class="flex gap-2">
-<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined text-xl">notifications</span>
-</button>
-<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined text-xl">account_circle</span>
-</button>
-</div>
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="User profile avatar portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDb7ZGSVgMc_Xnr9LX-FP583bmr4l3nFG2fGsA8K2zODPfr1ENSaV7W7mCYOoiX1kxLCTDTRo6ofZzf_I5f25pMyK-MQKzhvEGE6zsCt-ZNlUBEDe3_upWcbXGmA2k0j8fYCKLdqSUhP0pSScftwxyFGCMkAcRPcnV3s8Vv--daoB8-Dm2lSDK0qBfPB5gcttokx1NPTjvr4GM6LhkbfAvgWBa3kaSDzQOiRklShMsu9150Q3BuI9WKFvROW8OHcKrzG_MvFJ003WQ");'></div>
-</div>
-</header>
-<div class="flex flex-1">
-<!-- Sidebar Navigation -->
-<aside class="hidden lg:flex w-72 flex-col border-r border-primary/10 bg-white dark:bg-background-dark p-4 gap-6">
-<div class="flex flex-col">
-<h1 class="text-slate-900 dark:text-slate-100 text-base font-bold">Trading Workspace</h1>
-<p class="text-slate-500 dark:text-slate-400 text-xs font-normal">Professional Analytics Hub</p>
-</div>
-<nav class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="sector-rotation.html">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-sm font-medium">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="#">
-<span class="material-symbols-outlined">filter_alt</span>
-<span class="text-sm font-medium">Screener</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="#">
-<span class="material-symbols-outlined">target</span>
-<span class="text-sm font-medium">Nilay's Scanner Hub</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="#">
-<span class="material-symbols-outlined">analytics</span>
-<span class="text-sm font-medium">Fundamental</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg active-nav text-primary transition-all" href="#">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">pie_chart</span>
-<span class="text-sm font-semibold">Sector Rotation</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="#">
-<span class="material-symbols-outlined">newspaper</span>
-<span class="text-sm font-medium">News &amp; Events</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-all" href="#">
-<span class="material-symbols-outlined">smart_toy</span>
-<span class="text-sm font-medium">AI Chatbot</span>
-</a>
-</nav>
-<div class="mt-auto p-4 bg-primary/5 rounded-xl border border-primary/20">
-<p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Market Status</p>
-<div class="flex items-center gap-2">
-<span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-<span class="text-xs font-medium text-slate-700 dark:text-slate-300">Markets Open (NSE/BSE)</span>
-</div>
-</div>
-</aside>
-<!-- Main Content Area -->
-<main class="flex-1 flex flex-col bg-background-light dark:bg-background-dark p-6 overflow-y-auto">
-<!-- Header Section -->
-<div class="mb-8">
-<div class="flex flex-wrap justify-between items-end gap-4">
-<div class="flex flex-col gap-1">
-<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-black leading-tight tracking-tight">Sector Rotation Analysis</h1>
-<p class="text-slate-500 dark:text-slate-400 text-base">Real-time relative strength and capital flow across industries.</p>
-<p class="text-primary text-xs font-semibold mt-2 flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">schedule</span>
-                            Last Updated: Oct 24, 2023, 09:15 AM (Refreshes Daily)
-                        </p>
-</div>
-<div class="flex gap-2 flex-wrap">
-<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-white px-4 text-sm font-bold shadow-sm shadow-primary/20">
-<span>All Sectors</span>
-<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
-</button>
-<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-<span class="text-green-500 material-symbols-outlined text-lg">trending_up</span>
-<span>Up</span>
-</button>
-<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-<span class="text-red-500 material-symbols-outlined text-lg">trending_down</span>
-<span>Down</span>
-</button>
-<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-<span class="text-slate-400 material-symbols-outlined text-lg">remove</span>
-<span>Neutral</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Industry Performance Bar Chart Visualization -->
-<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 mb-8 shadow-sm">
-<div class="flex justify-between items-center mb-8">
-<h3 class="text-slate-900 dark:text-slate-100 font-bold text-lg">Performance by Industry (%)</h3>
-<div class="flex gap-4 text-xs font-semibold uppercase tracking-wider text-slate-400">
-<div class="flex items-center gap-1"><span class="w-3 h-3 bg-primary rounded-sm"></span> Strength</div>
-<div class="flex items-center gap-1"><span class="w-3 h-3 bg-slate-200 dark:bg-slate-700 rounded-sm"></span> Previous</div>
-</div>
-</div>
-<div class="space-y-6">
-<!-- Tech -->
-<div class="space-y-2">
-<div class="flex justify-between text-sm font-bold">
-<span class="text-slate-700 dark:text-slate-300">Information Technology</span>
-<span class="text-green-500">+4.82%</span>
-</div>
-<div class="relative w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden flex items-center px-1">
-<div class="h-6 bg-primary rounded shadow-inner" style="width: 85%;"></div>
-<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-</div>
-</div>
-<!-- Fin Services -->
-<div class="space-y-2">
-<div class="flex justify-between text-sm font-bold">
-<span class="text-slate-700 dark:text-slate-300">Financial Services</span>
-<span class="text-green-500">+2.15%</span>
-</div>
-<div class="w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden flex items-center px-1">
-<div class="h-6 bg-primary/70 rounded" style="width: 62%;"></div>
-</div>
-</div>
-<!-- Healthcare -->
-<div class="space-y-2">
-<div class="flex justify-between text-sm font-bold">
-<span class="text-slate-700 dark:text-slate-300">Healthcare</span>
-<span class="text-red-500">-0.45%</span>
-</div>
-<div class="w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden flex items-center justify-end px-1">
-<div class="h-6 bg-slate-400 rounded" style="width: 15%;"></div>
-</div>
-</div>
-<!-- Energy -->
-<div class="space-y-2">
-<div class="flex justify-between text-sm font-bold">
-<span class="text-slate-700 dark:text-slate-300">Energy &amp; Power</span>
-<span class="text-green-500">+1.20%</span>
-</div>
-<div class="w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden flex items-center px-1">
-<div class="h-6 bg-primary/40 rounded" style="width: 38%;"></div>
-</div>
-</div>
-<!-- Consumer Goods -->
-<div class="space-y-2">
-<div class="flex justify-between text-sm font-bold">
-<span class="text-slate-700 dark:text-slate-300">Consumer Staples</span>
-<span class="text-slate-400">0.00%</span>
-</div>
-<div class="w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden flex items-center justify-center">
-<div class="h-1 w-full border-t-2 border-dashed border-slate-300 dark:border-slate-500"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- Detailed Stocks Table -->
-<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
-<div class="p-6 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
-<h3 class="text-slate-900 dark:text-slate-100 font-bold text-lg">Top Gainers: Information Technology</h3>
-<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
-                        View Full List <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-slate-50 dark:bg-slate-900/50 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
-<th class="px-6 py-4">Symbol</th>
-<th class="px-6 py-4">Price</th>
-<th class="px-6 py-4">Change %</th>
-<th class="px-6 py-4">Volume</th>
-<th class="px-6 py-4">RSI (14)</th>
-<th class="px-6 py-4">Signal</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-100 dark:divide-slate-700">
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4">
-<div class="flex flex-col">
-<span class="text-sm font-bold text-slate-900 dark:text-slate-100">TCS.NS</span>
-<span class="text-xs text-slate-500">Tata Consultancy Svcs</span>
-</div>
-</td>
-<td class="px-6 py-4 text-sm font-medium">₹3,450.25</td>
-<td class="px-6 py-4 text-sm font-bold text-green-500">+5.20%</td>
-<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">1.2M</td>
-<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">68.4</td>
-<td class="px-6 py-4">
-<span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded uppercase">Strong Buy</span>
-</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4">
-<div class="flex flex-col">
-<span class="text-sm font-bold text-slate-900 dark:text-slate-100">INFY.NS</span>
-<span class="text-xs text-slate-500">Infosys Limited</span>
-</div>
-</td>
-<td class="px-6 py-4 text-sm font-medium">₹1,452.10</td>
-<td class="px-6 py-4 text-sm font-bold text-green-500">+4.15%</td>
-<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">3.8M</td>
-<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">62.1</td>
-<td class="px-6 py-4">
-<span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded uppercase">Buy</span>
-</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4">
-<div class="flex flex-col">
-<span class="text-sm font-bold text-slate-900 dark:text-slate-100">WIPRO.NS</span>
-<span class="text-xs text-slate-500">Wipro Limited</span>
-</div>
-</td>
-<td class="px-6 py-4 text-sm font-medium">₹482.40</td>
-<td class="px-6 py-4 text-sm font-bold text-green-500">+2.30%</td>
-<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">2.1M</td>
-<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">55.8</td>
-<td class="px-6 py-4">
-<span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold rounded uppercase">Neutral</span>
-</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4">
-<div class="flex flex-col">
-<span class="text-sm font-bold text-slate-900 dark:text-slate-100">HCLTECH.NS</span>
-<span class="text-xs text-slate-500">HCL Technologies</span>
-</div>
-</td>
-<td class="px-6 py-4 text-sm font-medium">₹1,240.00</td>
-<td class="px-6 py-4 text-sm font-bold text-red-500">-1.05%</td>
-<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">850K</td>
-<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">42.3</td>
-<td class="px-6 py-4">
-<span class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 text-xs font-bold rounded uppercase">Hold</span>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="p-4 bg-slate-50 dark:bg-slate-900/50 flex justify-center border-t border-slate-200 dark:border-slate-700">
-<div class="flex gap-2">
-<button class="size-8 flex items-center justify-center rounded bg-primary text-white text-sm font-bold">1</button>
-<button class="size-8 flex items-center justify-center rounded border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-medium">2</button>
-<button class="size-8 flex items-center justify-center rounded border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-medium">3</button>
-</div>
-</div>
-</div>
-</main>
-</div>
-</div>
-</body></html>
+</body>
+</html>
