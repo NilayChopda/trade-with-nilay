@@ -8,5 +8,41 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+  
+<script>
+    const API_KEY = 'YOUR_API_KEY';
+
+    async function fetchIndexData(symbol, priceElementId, changeElementId) {
+        try {
+            const res = await fetch(`https://api.twelvedata.com/quote?symbol=${symbol}&apikey=${API_KEY}`);
+            const data = await res.json();
+            if (data && data.close) {
+                const price = parseFloat(data.close).toFixed(2);
+                const change = parseFloat(data.percent_change).toFixed(2);
+                document.getElementById(priceElementId).textContent = price;
+                const changeEl = document.getElementById(changeElementId);
+                changeEl.textContent = `${change > 0 ? '+' : ''}${change}%`;
+                changeEl.className = `text-xs font-bold ${change >= 0 ? 'text-green-500' : 'text-red-500'}`;
+            }
+        } catch (error) { console.error('Error:', error); }
+    }
+
+    function updateMarketData() {
+        fetchIndexData('NIFTY', 'nifty-price', 'nifty-change');
+        fetchIndexData('BANKNIFTY', 'bank-nifty-price', 'bank-nifty-change');
+    }
+
+    function updateFIIDIITimestamp() {
+        const timestampEl = document.getElementById('fii-dii-timestamp');
+        if (timestampEl) {
+            const now = new Date();
+            timestampEl.innerHTML = `Last Updated: ${now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+        }
+    }
+
+    updateMarketData();
+    updateFIIDIITimestamp();
+    setInterval(updateMarketData, 60000);
+</script>
+</body>
 </html>
