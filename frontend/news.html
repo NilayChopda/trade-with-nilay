@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af35",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#201d12",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <title>Trade_with_Nilay - News & Events</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+    <aside class="w-64 bg-white dark:bg-zinc-900 border-r border-slate-200 dark:border-zinc-800 flex flex-col justify-between p-6">
+        <div class="flex flex-col gap-8">
+            <div class="flex gap-3 items-center">
+                <div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined">trending_up</span>
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="text-slate-900 dark:text-white text-sm font-bold leading-tight">Trade_with_Nilay</h1>
+                    <p class="text-slate-500 text-xs">Premium Trading Insight</p>
+                </div>
+            </div>
+            <nav class="flex-1 px-4 space-y-1 overflow-y-auto custom-scrollbar">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="index.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="text-sm">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="screener.html">
+                <span class="material-symbols-outlined">filter_alt</span>
+                <span class="text-sm">Screener</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="scanner-hub.html">
+                <span class="material-symbols-outlined">hub</span>
+                <span class="text-sm">Nilay's Scanner Hub</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="fundamentals.html">
+                <span class="material-symbols-outlined">analytics</span>
+                <span class="text-sm">Fundamental</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="sector-rotation.html">
+                <span class="material-symbols-outlined">sync_alt</span>
+                <span class="text-sm">Sector Rotation</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="news.html">
+                <span class="material-symbols-outlined">newspaper</span>
+                <span class="text-sm">News & Events</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="ai-chat.html">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <span class="text-sm">AI Chatbot</span>
+            </a>
+        </nav>
+        </div>
+        <div class="flex flex-col gap-4">
+            <button class="w-full bg-primary text-slate-900 font-bold py-2.5 rounded-lg text-sm flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+                Upgrade to Pro
+            </button>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-y-auto">
+        <header class="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-slate-200 dark:border-zinc-800 px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <h2 class="text-xl font-bold tracking-tight">Market News & Events</h2>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative w-64">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+                    <input class="w-full bg-slate-100 dark:bg-zinc-800 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary" placeholder="Search news..." type="text"/>
+                </div>
+            </div>
+        </header>
+
+        <div class="px-8 py-6 @container">
+            <div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-zinc-800 @xl:flex group">
+                <div class="@xl:w-2/5 h-64 @xl:h-auto overflow-hidden">
+                    <div class="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-105 transition-transform duration-500" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqeSpGDURiemq29YvPpYXnXltXUeJco1KGkjA7SgCagBLKbAo_PKwWyMIbJW8CmfYyU6mAolK4Gv0ncwo6Hx0If6GnK13EHcngcsEDkBIrHmzO7Yy4U_C-QarGR4bffDsGRN2ljgHx0Bv4vuSjdP38iXMVnJQZE6vD-JipSWpGnAmwmho4xhuvQ3rVN4iE3J5IB55Ey8yXv4ATITGnqlBS_qg5nY9seuibykZttfuClaks60ogQckHQ4IKAyDV2NoDluCaK_5LZ2E");'></div>
+                </div>
+                <div class="p-8 @xl:w-3/5 flex flex-col justify-between">
+                    <div>
+                        <span class="text-primary text-xs font-bold tracking-widest uppercase">Economy India</span>
+                        <h4 class="text-2xl font-bold mt-2 mb-4 group-hover:text-primary transition-colors">RBI Maintains Repo Rate: Impact Analysis</h4>
+                        <p class="text-slate-600 dark:text-slate-400 line-clamp-3 mb-6">Analyzing the hidden nuances of the latest policy on mid-term liquidity and the broader real estate sector performance forecast.</p>
+                    </div>
+                    <button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                        Read Full Report <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-8 pb-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-slate-200 dark:border-zinc-800 p-5 group cursor-pointer">
+                <h5 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Tech-Giant IPO: Overvaluation Risks?</h5>
+                <p class="text-slate-500 text-sm line-clamp-2">A critical look at the upcoming SaaS IPO metrics vs cash burn ratios.</p>
+                <div class="mt-4 pt-4 border-t border-slate-100 dark:border-zinc-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400">4 hours ago</span>
+                    <span class="material-symbols-outlined text-slate-300">bookmark</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</body>
+</html>

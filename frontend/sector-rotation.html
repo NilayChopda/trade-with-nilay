@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Sector Rotation Analysis - Trade_with_Nilay</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af35",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#201d12",
+                    },
+                    fontFamily: { "display": ["Inter"] },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-nav { border-left: 4px solid #d4af35; background-color: rgba(212, 175, 53, 0.1); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-primary/10 bg-white dark:bg-background-dark px-6 py-3 lg:px-10">
+        <div class="flex items-center gap-8">
+            <div class="flex items-center gap-2 text-primary">
+                <span class="material-symbols-outlined text-3xl font-bold">query_stats</span>
+                <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Trade_with_Nilay</h2>
+            </div>
+        </div>
+        <div class="flex gap-4 items-center">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDb7ZGSVgMc_Xnr9LX-FP583bmr4l3nFG2fGsA8K2zODPfr1ENSaV7W7mCYOoiX1kxLCTDTRo6ofZzf_I5f25pMyK-MQKzhvEGE6zsCt-ZNlUBEDe3_upWcbXGmA2k0j8fYCKLdqSUhP0pSScftwxyFGCMkAcRPcnV3s8Vv--daoB8-Dm2lSDK0qBfPB5gcttokx1NPTjvr4GM6LhkbfAvgWBa3kaSDzQOiRklShMsu9150Q3BuI9WKFvROW8OHcKrzG_MvFJ003WQ");'></div>
+        </div>
+    </header>
+
+    <div class="flex flex-1">
+        <aside class="hidden lg:flex w-72 flex-col border-r border-primary/10 bg-white dark:bg-background-dark p-4 gap-6">
+            <nav class="flex-1 px-4 space-y-1 overflow-y-auto custom-scrollbar">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="index.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="text-sm">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="screener.html">
+                <span class="material-symbols-outlined">filter_alt</span>
+                <span class="text-sm">Screener</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="scanner-hub.html">
+                <span class="material-symbols-outlined">hub</span>
+                <span class="text-sm">Nilay's Scanner Hub</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="fundamentals.html">
+                <span class="material-symbols-outlined">analytics</span>
+                <span class="text-sm">Fundamental</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="sector-rotation.html">
+                <span class="material-symbols-outlined">sync_alt</span>
+                <span class="text-sm">Sector Rotation</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="news.html">
+                <span class="material-symbols-outlined">newspaper</span>
+                <span class="text-sm">News & Events</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="ai-chat.html">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <span class="text-sm">AI Chatbot</span>
+            </a>
+        </nav>
+        </aside>
+
+        <main class="flex-1 flex flex-col p-6 overflow-y-auto">
+            <h1 class="text-3xl font-black mb-2">Sector Rotation Analysis</h1>
+            <p class="text-slate-500 mb-8">Real-time relative strength across industries.</p>
+
+            <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 mb-8 shadow-sm">
+                <h3 class="font-bold text-lg mb-8">Performance by Industry (%)</h3>
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-bold"><span>IT</span><span class="text-green-500">+4.82%</span></div>
+                        <div class="w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg"><div class="h-full bg-primary rounded" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-bold"><span>Financials</span><span class="text-green-500">+2.15%</span></div>
+                        <div class="w-full h-8 bg-slate-100 dark:bg-slate-700 rounded-lg"><div class="h-full bg-primary/70 rounded" style="width: 62%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
