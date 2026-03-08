@@ -1,278 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Trade_with_Nilay - Premium Finance Dashboard</title>
+    <title>Trade_with_Nilay - Premium Indian Stock Market Dashboard</title>
+    <meta name="description" content="Professional Indian stock market dashboard with live Nifty, Bank Nifty prices, FII/DII data, and market analysis by Nilay Chopda." />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#d4af35",
-                        "background-light": "#f8f7f6",
-                        "background-dark": "#201d12",
+                        "primary": "#d4af37",
+                        "primary-dark": "#b8962e",
+                        "surface": "#ffffff",
+                        "surface-dark": "#0f1117",
+                        "card": "#ffffff",
+                        "card-dark": "#1a1d28",
+                        "sidebar": "#0f1117",
+                        "accent-green": "#22c55e",
+                        "accent-red": "#ef4444",
                     },
-                    fontFamily: { "display": ["Inter"] },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    fontFamily: { "display": ["Inter", "sans-serif"] },
                 },
             },
         }
     </script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .material-symbols-outlined {
-            font-size: 22px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #e5e7eb;
-            border-radius: 10px;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-size: 22px; }
+        .nav-active { background: linear-gradient(90deg, rgba(212,175,55,0.15) 0%, transparent 100%); border-left: 3px solid #d4af37; }
+        .card-glow:hover { box-shadow: 0 0 20px rgba(212,175,55,0.08); }
+        .stat-card { transition: all 0.3s ease; }
+        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .pulse-dot { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        .ticker-flash { animation: flash 0.5s ease; }
+        @keyframes flash { 0% { background: rgba(212,175,55,0.2); } 100% { background: transparent; } }
     </style>
 </head>
-
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
-    <div class="flex h-screen overflow-hidden">
-        <aside
-            class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col shrink-0">
-            <div class="p-6 flex items-center gap-3">
-                <div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
-                    <span class="material-symbols-outlined fill-1">trending_up</span>
-                </div>
-                <div>
-                    <h1 class="text-base font-bold leading-none">Trade_with_Nilay</h1>
-                    <p class="text-xs text-slate-500 mt-1 uppercase tracking-wider font-semibold">Premium Finance</p>
-                </div>
+<body class="bg-[#f8f9fc] font-display text-slate-900">
+<div class="flex h-screen overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-sidebar flex flex-col shrink-0">
+        <div class="p-6 flex items-center gap-3 border-b border-white/5">
+            <div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">trending_up</span>
             </div>
-            <nav class="flex-1 px-4 space-y-1 overflow-y-auto custom-scrollbar">
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="index.html">
-                <span class="material-symbols-outlined">dashboard</span>
-                <span class="text-sm">Dashboard</span>
+            <div>
+                <h1 class="text-white text-base font-bold leading-none">Trade_with_Nilay</h1>
+                <p class="text-primary text-[10px] mt-1 uppercase tracking-[0.2em] font-semibold">Premium Finance</p>
+            </div>
+        </div>
+        <nav class="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto custom-scrollbar">
+            <a class="nav-active flex items-center gap-3 px-3 py-2.5 rounded-r-lg text-primary font-semibold text-sm" href="index.html">
+                <span class="material-symbols-outlined text-[20px]">dashboard</span>Dashboard
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="screener.html">
-                <span class="material-symbols-outlined">filter_alt</span>
-                <span class="text-sm">Screener</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="screener.html">
+                <span class="material-symbols-outlined text-[20px]">filter_alt</span>Screener
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="scanner-hub.html">
-                <span class="material-symbols-outlined">hub</span>
-                <span class="text-sm">Nilay's Scanner Hub</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="scanner-hub.html">
+                <span class="material-symbols-outlined text-[20px]">hub</span>Scanner Hub
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="fundamentals.html">
-                <span class="material-symbols-outlined">analytics</span>
-                <span class="text-sm">Fundamental</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="fundamentals.html">
+                <span class="material-symbols-outlined text-[20px]">analytics</span>Fundamental
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="sector-rotation.html">
-                <span class="material-symbols-outlined">sync_alt</span>
-                <span class="text-sm">Sector Rotation</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="sector-rotation.html">
+                <span class="material-symbols-outlined text-[20px]">sync_alt</span>Sector Rotation
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="news.html">
-                <span class="material-symbols-outlined">newspaper</span>
-                <span class="text-sm">News & Events</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="news.html">
+                <span class="material-symbols-outlined text-[20px]">newspaper</span>News & Events
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="ai-chat.html">
-                <span class="material-symbols-outlined">smart_toy</span>
-                <span class="text-sm">AI Chatbot</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="ai-chat.html">
+                <span class="material-symbols-outlined text-[20px]">smart_toy</span>AI Chatbot
             </a>
         </nav>
-            <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="bg-primary/5 rounded-xl p-4 border border-primary/10">
-                    <p class="text-xs font-bold text-primary uppercase mb-1">Pro Plan</p>
-                    <p class="text-[11px] text-slate-500 mb-3 leading-tight">Access advanced technical indicators and
-                        real-time FII/DII data.</p>
-                    <button
-                        class="w-full py-2 bg-primary text-white text-xs font-bold rounded-lg hover:brightness-110 transition-all">Upgrade
-                        Now</button>
+        <div class="p-4 border-t border-white/5">
+            <div class="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 border border-primary/10">
+                <p class="text-[10px] font-bold text-primary uppercase tracking-wider mb-1">Pro Plan Active</p>
+                <p class="text-[11px] text-slate-400 mb-3 leading-relaxed">Advanced technical indicators & real-time FII/DII data.</p>
+                <button class="w-full py-2 bg-primary text-black text-xs font-bold rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/20">Upgrade Now</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <!-- Header -->
+        <header class="h-16 border-b border-slate-200 bg-white px-6 flex items-center justify-between shrink-0">
+            <div class="flex items-center flex-1 max-w-xl">
+                <div class="relative w-full">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                    <input class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-xl focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Search markets, stocks, indices..." type="text" />
                 </div>
             </div>
-        </aside>
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 text-green-600 rounded-full text-xs font-bold">
+                    <span class="size-2 bg-green-500 rounded-full pulse-dot"></span> Market Open
+                </div>
+                <button class="p-2 hover:bg-slate-100 rounded-lg text-slate-500 relative">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-1.5 right-1.5 size-2 bg-red-500 rounded-full"></span>
+                </button>
+                <div class="h-8 w-px bg-slate-200 mx-1"></div>
+                <div class="flex items-center gap-3 pl-2">
+                    <div class="text-right">
+                        <p class="text-sm font-bold leading-none">Nilay Chopda</p>
+                        <p class="text-[10px] text-primary font-semibold mt-1">Premium Investor</p>
+                    </div>
+                    <div class="size-10 rounded-full border-2 border-primary/30 p-0.5 bg-gradient-to-br from-primary/20 to-primary/5">
+                        <div class="w-full h-full rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">NC</div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-        <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
-            <header
-                class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 flex items-center justify-between shrink-0">
-                <div class="flex items-center flex-1 max-w-xl">
-                    <div class="relative w-full">
-                        <span
-                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-                        <input
-                            class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/50 text-sm"
-                            placeholder="Search markets, stocks, indices..." type="text" />
-                    </div>
-                </div>
-                <div class="flex items-center gap-4">
-                    <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500 relative">
-                        <span class="material-symbols-outlined">notifications</span>
-                        <span
-                            class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
-                    </button>
-                    <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500">
-                        <span class="material-symbols-outlined">settings</span>
-                    </button>
-                    <div class="h-8 w-px bg-slate-200 dark:border-slate-800 mx-1"></div>
-                    <div class="flex items-center gap-3 pl-2">
-                        <div class="text-right hidden sm:block">
-                            <p class="text-sm font-bold leading-none">Nilay Chopda</p>
-                            <p class="text-[10px] text-primary font-semibold mt-1">Premium Investor</p>
+        <!-- Dashboard Content -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- Index Cards Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="stat-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-glow">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="size-8 bg-blue-50 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-blue-600 text-[18px]">show_chart</span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Nifty 50</p>
                         </div>
-                        <div class="size-10 rounded-full border-2 border-primary/20 p-0.5">
-                            <img class="w-full h-full rounded-full object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJcUhZ_ALsWB1pp8pCbCaI3MKZRWzJvDlr4pdlRlbi7W7t4soddLvfcgaFbecHFY85qJ5XQZAdPv3LzMDmC0lXnkW2MoOZG43A7qJ86_PQa4ziQ5CtQG_7sLJZWEjxThbqtELy6GVIYkUeY7ieO4XnbBuXzxBrvtYCgYMHyKsZrsB1tmwQFS6I7VNMH2NtA9_7GYjVjvr749gFACGOaznQNf39wNW9uTcoFsn7OwCVsIryLaeUYpBsYS3qCFfE-zYZueSwGjlqwAI" />
+                        <span id="nifty-change" class="text-xs font-bold px-2 py-0.5 rounded-full bg-green-50 text-green-600">...</span>
+                    </div>
+                    <h3 id="nifty-price" class="text-2xl font-black text-slate-900">22,453.15</h3>
+                    <p class="text-[11px] text-slate-400 mt-1">NSE Index</p>
+                </div>
+                <div class="stat-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-glow">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="size-8 bg-purple-50 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-purple-600 text-[18px]">account_balance</span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Bank Nifty</p>
+                        </div>
+                        <span id="bank-nifty-change" class="text-xs font-bold px-2 py-0.5 rounded-full bg-red-50 text-red-500">...</span>
+                    </div>
+                    <h3 id="bank-nifty-price" class="text-2xl font-black text-slate-900">47,820.40</h3>
+                    <p class="text-[11px] text-slate-400 mt-1">NSE Banking Index</p>
+                </div>
+                <div class="stat-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-glow">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="size-8 bg-green-50 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-green-600 text-[18px]">arrow_upward</span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">FII Net</p>
                         </div>
                     </div>
+                    <h3 id="fii-net" class="text-2xl font-black text-green-600">+₹1,450 Cr</h3>
+                    <p id="fii-date" class="text-[11px] text-slate-400 mt-1">Last Updated: Mar 8, 2026</p>
                 </div>
-            </header>
-
-            <div class="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/50 dark:bg-background-dark/50">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                    <div class="flex justify-between items-start">
-                        <p class="text-xs font-semibold text-slate-500 uppercase">Nifty 50</p>
-                        <span id="nifty-change" class="text-green-500 text-xs font-bold">...</span>
+                <div class="stat-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm card-glow">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="size-8 bg-amber-50 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-amber-600 text-[18px]">arrow_downward</span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">DII Net</p>
+                        </div>
                     </div>
-                    <h3 id="nifty-price" class="text-xl font-bold mt-1">Loading...</h3>
-                </div>
-                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                    <div class="flex justify-between items-start">
-                        <p class="text-xs font-semibold text-slate-500 uppercase">Bank Nifty</p>
-                        <span id="bank-nifty-change" class="text-red-500 text-xs font-bold">...</span>
-                    </div>
-                    <h3 id="bank-nifty-price" class="text-xl font-bold mt-1">Loading...</h3>
+                    <h3 id="dii-net" class="text-2xl font-black text-red-500">-₹450 Cr</h3>
+                    <p class="text-[11px] text-slate-400 mt-1">Domestic Institutional</p>
                 </div>
             </div>
 
+            <!-- Chart + Market Depth -->
             <div class="flex flex-col lg:flex-row gap-6">
-                    <div class="lg:w-2/3 flex flex-col gap-4">
-                        <div
-                            class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-4 h-[500px] flex flex-col">
-                            <div class="flex flex-wrap items-center justify-between mb-4 gap-4">
-                                <h2 class="text-lg font-bold">NSE: NIFTY50</h2>
-                                <button
-                                    class="flex items-center gap-2 px-3 py-1.5 bg-primary text-white rounded-lg text-xs font-bold"><span
-                                        class="material-symbols-outlined text-[16px]">add</span> Indicator</button>
-                            </div>
-                            <div
-                                class="flex-1 bg-slate-50 dark:bg-slate-950 rounded-lg border border-slate-100 dark:border-slate-800 p-4">
-                                <svg class="w-full h-full text-primary" preserveAspectRatio="none"
-                                    viewBox="0 0 800 300">
-                                    <path
-                                        d="M0,250 L50,230 L100,240 L150,210 L200,220 L250,180 L300,190 L350,150 L400,160 L450,120 L500,130 L550,100 L600,110 L650,80 L700,90 L750,50 L800,60"
-                                        fill="none" stroke="currentColor" stroke-width="3"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/3">
-                        <div
-                            class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-4 h-[500px]">
-                            <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-lg font-bold">FII & DII Activities</h2>
-                            <span id="fii-dii-timestamp" class="text-xs text-slate-500">Last Updated: <span class="font-semibold text-slate-700 dark:text-slate-300">...</span></span>
-                        </div>
-                            <div class="space-y-4">
-                                <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg flex justify-between">
-                                    <span class="text-xs font-semibold">FII Net Value</span>
-                                    <span class="text-sm font-bold text-green-600">+₹1,450 Cr</span>
-                                </div>
-                                <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg flex justify-between">
-                                    <span class="text-xs font-semibold">DII Net Value</span>
-                                    <span class="text-sm font-bold text-red-600">-₹450 Cr</span>
-                                </div>
-                            </div>
+                <div class="lg:w-2/3">
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden" style="height:500px;">
+                        <!-- TradingView Widget -->
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div id="tradingview_chart" style="height:100%;width:100%"></div>
                         </div>
                     </div>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div
-                        class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <div
-                            class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                            <h2 class="text-base font-bold">Top Movers</h2>
+                <div class="lg:w-1/3 space-y-4">
+                    <!-- Top Gainers -->
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="p-4 border-b border-slate-100 flex justify-between items-center">
+                            <h2 class="text-sm font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-green-500 text-[18px]">trending_up</span> Top Gainers
+                            </h2>
                             <a class="text-primary text-xs font-bold" href="screener.html">View All</a>
                         </div>
-                        <table class="w-full text-left">
-                            <tbody class="text-sm divide-y divide-slate-50 dark:divide-slate-800">
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="px-4 py-3 font-semibold">RELIANCE</td>
-                                    <td class="px-4 py-3 text-green-500">+2.4%</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="px-4 py-3 font-semibold">TCS</td>
-                                    <td class="px-4 py-3 text-red-500">-1.2%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div
-                        class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <div
-                            class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                            <h2 class="text-base font-bold">Market News</h2>
-                            <a class="text-primary text-xs font-bold" href="news.html">View All</a>
+                        <div id="top-gainers">
+                            <div class="flex justify-between items-center px-4 py-2.5 hover:bg-slate-50 transition-colors border-b border-slate-50">
+                                <div><span class="text-sm font-bold">RELIANCE</span><span class="text-[10px] text-slate-400 ml-2">Energy</span></div>
+                                <div class="text-right"><span class="text-sm font-bold">₹2,540</span><span class="text-green-500 text-xs font-bold ml-2">+2.4%</span></div>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-2.5 hover:bg-slate-50 transition-colors border-b border-slate-50">
+                                <div><span class="text-sm font-bold">HDFCBANK</span><span class="text-[10px] text-slate-400 ml-2">Banking</span></div>
+                                <div class="text-right"><span class="text-sm font-bold">₹1,520</span><span class="text-green-500 text-xs font-bold ml-2">+1.8%</span></div>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-2.5 hover:bg-slate-50 transition-colors border-b border-slate-50">
+                                <div><span class="text-sm font-bold">INFY</span><span class="text-[10px] text-slate-400 ml-2">IT</span></div>
+                                <div class="text-right"><span class="text-sm font-bold">₹1,421</span><span class="text-green-500 text-xs font-bold ml-2">+1.5%</span></div>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-2.5 hover:bg-slate-50 transition-colors">
+                                <div><span class="text-sm font-bold">TCS</span><span class="text-[10px] text-slate-400 ml-2">IT</span></div>
+                                <div class="text-right"><span class="text-sm font-bold">₹3,851</span><span class="text-green-500 text-xs font-bold ml-2">+1.2%</span></div>
+                            </div>
                         </div>
-                        <div class="p-4 space-y-4">
-                            <h4 class="text-sm font-bold">RBI keeps repo rate unchanged...</h4>
-                            <p class="text-[11px] text-slate-500">2 hours ago • Economy</p>
+                    </div>
+                    <!-- Top Losers -->
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="p-4 border-b border-slate-100 flex justify-between items-center">
+                            <h2 class="text-sm font-bold flex items-center gap-2">
+                                <span class="material-symbols-outlined text-red-500 text-[18px]">trending_down</span> Top Losers
+                            </h2>
+                        </div>
+                        <div id="top-losers">
+                            <div class="flex justify-between items-center px-4 py-2.5 hover:bg-slate-50 transition-colors border-b border-slate-50">
+                                <div><span class="text-sm font-bold">TATAMOTORS</span><span class="text-[10px] text-slate-400 ml-2">Auto</span></div>
+                                <div class="text-right"><span class="text-sm font-bold">₹950</span><span class="text-red-500 text-xs font-bold ml-2">-2.1%</span></div>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-2.5 hover:bg-slate-50 transition-colors border-b border-slate-50">
+                                <div><span class="text-sm font-bold">WIPRO</span><span class="text-[10px] text-slate-400 ml-2">IT</span></div>
+                                <div class="text-right"><span class="text-sm font-bold">₹412</span><span class="text-red-500 text-xs font-bold ml-2">-1.8%</span></div>
+                            </div>
+                            <div class="flex justify-between items-center px-4 py-2.5 hover:bg-slate-50 transition-colors">
+                                <div><span class="text-sm font-bold">SBIN</span><span class="text-[10px] text-slate-400 ml-2">Banking</span></div>
+                                <div class="text-right"><span class="text-sm font-bold">₹610</span><span class="text-red-500 text-xs font-bold ml-2">-1.5%</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
 
+            <!-- Market News Quick Strip -->
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-base font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[20px]">newspaper</span> Market Headlines
+                    </h2>
+                    <a class="text-primary text-xs font-bold" href="news.html">View All →</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+                        <h4 class="text-sm font-bold leading-snug">RBI keeps repo rate unchanged at 6.5%</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">2 hours ago • Economy</p>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+                        <h4 class="text-sm font-bold leading-snug">FII inflows surge to ₹4,500 Cr this week</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">4 hours ago • Markets</p>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+                        <h4 class="text-sm font-bold leading-snug">IT stocks rally as Nasdaq hits new high</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">5 hours ago • Sector</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- TradingView Widget Script -->
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+    new TradingView.widget({
+        "autosize": true,
+        "symbol": "NSE:NIFTY",
+        "interval": "15",
+        "timezone": "Asia/Kolkata",
+        "theme": "light",
+        "style": "1",
+        "locale": "en",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "allow_symbol_change": true,
+        "container_id": "tradingview_chart",
+        "hide_side_toolbar": false,
+        "studies": ["MASimple@tv-basicstudies"],
+    });
+</script>
+
+<!-- Live Data Script -->
 <script>
-    const API_KEY = 'YOUR_API_KEY';
-
-    async function fetchIndexData(symbol, priceElementId, changeElementId) {
-        try {
-            const res = await fetch(`https://api.twelvedata.com/quote?symbol=${symbol}&apikey=${API_KEY}`);
-            const data = await res.json();
-            if (data && data.close) {
-                const price = parseFloat(data.close).toFixed(2);
-                const change = parseFloat(data.percent_change).toFixed(2);
-                document.getElementById(priceElementId).textContent = price;
-                const changeEl = document.getElementById(changeElementId);
-                changeEl.textContent = `${change > 0 ? '+' : ''}${change}%`;
-                changeEl.className = `text-xs font-bold ${change >= 0 ? 'text-green-500' : 'text-red-500'}`;
-            }
-        } catch (error) { console.error('Error:', error); }
-    }
-
-    function updateMarketData() {
-        fetchIndexData('NIFTY', 'nifty-price', 'nifty-change');
-        fetchIndexData('BANKNIFTY', 'bank-nifty-price', 'bank-nifty-change');
-    }
-
-    function updateFIIDIITimestamp() {
-        const timestampEl = document.getElementById('fii-dii-timestamp');
-        if (timestampEl) {
+    // Update FII/DII timestamp
+    (function() {
+        const fiiDateEl = document.getElementById('fii-date');
+        if (fiiDateEl) {
             const now = new Date();
-            timestampEl.innerHTML = `Last Updated: ${now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+            fiiDateEl.textContent = 'Last Updated: ' + now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
-    }
+    })();
 
-    updateMarketData();
-    updateFIIDIITimestamp();
-    setInterval(updateMarketData, 60000);
+    // Nifty/BankNifty live prices via public Yahoo Finance CORS proxy
+    async function fetchLiveIndices() {
+        try {
+            const symbols = [
+                { sym: '^NSEI', priceId: 'nifty-price', changeId: 'nifty-change' },
+                { sym: '^NSEBANK', priceId: 'bank-nifty-price', changeId: 'bank-nifty-change' }
+            ];
+            for (const s of symbols) {
+                try {
+                    const res = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${s.sym}?interval=1m&range=1d`);
+                    const data = await res.json();
+                    if (data.chart && data.chart.result && data.chart.result[0]) {
+                        const meta = data.chart.result[0].meta;
+                        const price = meta.regularMarketPrice;
+                        const prevClose = meta.chartPreviousClose || meta.previousClose;
+                        const changePct = ((price - prevClose) / prevClose * 100).toFixed(2);
+                        
+                        const priceEl = document.getElementById(s.priceId);
+                        const changeEl = document.getElementById(s.changeId);
+                        
+                        priceEl.textContent = price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+                        priceEl.classList.add('ticker-flash');
+                        setTimeout(() => priceEl.classList.remove('ticker-flash'), 500);
+                        
+                        changeEl.textContent = `${changePct > 0 ? '+' : ''}${changePct}%`;
+                        changeEl.className = `text-xs font-bold px-2 py-0.5 rounded-full ${changePct >= 0 ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-500'}`;
+                    }
+                } catch(e) { console.log('Index fetch skipped', s.sym); }
+            }
+        } catch (error) { console.error('Index data error:', error); }
+    }
+    
+    fetchLiveIndices();
+    setInterval(fetchLiveIndices, 60000);
 </script>
 </body>
-
 </html>

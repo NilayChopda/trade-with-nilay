@@ -1,337 +1,339 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Fundamental Analysis - Trade_with_Nilay</title>
+    <meta name="description" content="In-depth fundamental analysis of Indian stocks. Search any NSE stock for P/E, Market Cap, Revenue, Promoter Holding, and more."/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <script>
         tailwind.config = {
             darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#d4af35",
-                        "background-light": "#f8fafc",
-                        "background-dark": "#201d12",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
+            theme: { extend: {
+                colors: { "primary": "#d4af37", "sidebar": "#0f1117" },
+                fontFamily: { "display": ["Inter", "sans-serif"] },
+            }},
         }
     </script>
-<style>
+    <style>
         body { font-family: 'Inter', sans-serif; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .active-nav {
-            background-color: rgba(212, 175, 53, 0.1);
-            border-left: 4px solid #d4af35;
-        }
+        .material-symbols-outlined { font-size: 22px; }
+        .nav-active { background: linear-gradient(90deg, rgba(212,175,55,0.15) 0%, transparent 100%); border-left: 3px solid #d4af37; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        .metric-card { transition: all 0.3s ease; }
+        .metric-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .progress-bar { transition: width 1s ease; }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
-<div class="flex min-h-screen">
-<!-- Side Navigation -->
-<aside class="w-64 bg-white dark:bg-zinc-900 border-r border-slate-200 dark:border-zinc-800 flex flex-col shrink-0">
-<div class="p-6">
-<div class="flex items-center gap-2 mb-8">
-<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white">
-<span class="material-symbols-outlined">analytics</span>
-</div>
-<div>
-<h1 class="text-lg font-bold leading-none">Scanner Hub</h1>
-<p class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Premium Analytics</p>
-</div>
-</div>
-<nav class="flex-1 px-4 space-y-1 overflow-y-auto custom-scrollbar">
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="index.html">
-                <span class="material-symbols-outlined">dashboard</span>
-                <span class="text-sm">Dashboard</span>
+<body class="bg-[#f8f9fc] font-display text-slate-900">
+<div class="flex h-screen overflow-hidden">
+    <!-- Sidebar (identical across all pages) -->
+    <aside class="w-64 bg-sidebar flex flex-col shrink-0">
+        <div class="p-6 flex items-center gap-3 border-b border-white/5">
+            <div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">trending_up</span>
+            </div>
+            <div>
+                <h1 class="text-white text-base font-bold leading-none">Trade_with_Nilay</h1>
+                <p class="text-primary text-[10px] mt-1 uppercase tracking-[0.2em] font-semibold">Premium Finance</p>
+            </div>
+        </div>
+        <nav class="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto custom-scrollbar">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="index.html">
+                <span class="material-symbols-outlined text-[20px]">dashboard</span>Dashboard
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="screener.html">
-                <span class="material-symbols-outlined">filter_alt</span>
-                <span class="text-sm">Screener</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="screener.html">
+                <span class="material-symbols-outlined text-[20px]">filter_alt</span>Screener
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="scanner-hub.html">
-                <span class="material-symbols-outlined">hub</span>
-                <span class="text-sm">Nilay's Scanner Hub</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="scanner-hub.html">
+                <span class="material-symbols-outlined text-[20px]">hub</span>Scanner Hub
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="fundamentals.html">
-                <span class="material-symbols-outlined">analytics</span>
-                <span class="text-sm">Fundamental</span>
+            <a class="nav-active flex items-center gap-3 px-3 py-2.5 rounded-r-lg text-primary font-semibold text-sm" href="fundamentals.html">
+                <span class="material-symbols-outlined text-[20px]">analytics</span>Fundamental
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="sector-rotation.html">
-                <span class="material-symbols-outlined">sync_alt</span>
-                <span class="text-sm">Sector Rotation</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="sector-rotation.html">
+                <span class="material-symbols-outlined text-[20px]">sync_alt</span>Sector Rotation
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="news.html">
-                <span class="material-symbols-outlined">newspaper</span>
-                <span class="text-sm">News & Events</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="news.html">
+                <span class="material-symbols-outlined text-[20px]">newspaper</span>News & Events
             </a>
-            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="ai-chat.html">
-                <span class="material-symbols-outlined">smart_toy</span>
-                <span class="text-sm">AI Chatbot</span>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm" href="ai-chat.html">
+                <span class="material-symbols-outlined text-[20px]">smart_toy</span>AI Chatbot
             </a>
         </nav>
+        <div class="p-4 border-t border-white/5">
+            <div class="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 border border-primary/10">
+                <p class="text-[10px] font-bold text-primary uppercase tracking-wider mb-1">Pro Plan Active</p>
+                <p class="text-[11px] text-slate-400 mb-3 leading-relaxed">Advanced fundamental data & analysis.</p>
+                <button class="w-full py-2 bg-primary text-black text-xs font-bold rounded-lg hover:brightness-110 transition-all">Upgrade Now</button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <!-- Header -->
+        <header class="h-16 border-b border-slate-200 bg-white px-6 flex items-center justify-between shrink-0">
+            <div class="flex items-center gap-4">
+                <h2 class="text-xl font-black tracking-tight">Fundamental Analysis</h2>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <span class="text-sm text-slate-500">Deep-dive into company financials</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="relative w-72">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                    <input id="stock-search" class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/50" placeholder="Search: RELIANCE, TCS, HDFC..." type="text"/>
+                </div>
+                <button onclick="searchStock()" class="px-4 py-2 bg-primary text-black text-sm font-bold rounded-xl hover:brightness-110 transition-all">Analyze</button>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-6">
+            <!-- Company Header -->
+            <div id="company-header" class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 mb-6">
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <h1 id="company-name" class="text-2xl font-black">Reliance Industries Ltd</h1>
+                            <span id="company-symbol" class="px-3 py-1 bg-slate-100 rounded-lg font-mono text-xs font-bold text-slate-600">NSE: RELIANCE</span>
+                            <span class="px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold">Large Cap</span>
+                        </div>
+                        <p id="company-sector" class="text-sm text-slate-500">Energy • Conglomerate • Mumbai, India</p>
+                    </div>
+                    <div class="text-right">
+                        <h2 id="live-price" class="text-3xl font-black">₹2,540.15</h2>
+                        <p id="price-change" class="text-sm font-bold text-green-600 mt-1">+₹28.50 (+1.13%) Today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
+                <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Market Cap</p>
+                    <p id="mcap" class="text-lg font-black text-slate-900">₹17.2L Cr</p>
+                </div>
+                <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">P/E Ratio</p>
+                    <p id="pe" class="text-lg font-black text-slate-900">28.5</p>
+                </div>
+                <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">P/B Ratio</p>
+                    <p id="pb" class="text-lg font-black text-slate-900">2.1</p>
+                </div>
+                <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Div. Yield</p>
+                    <p id="divyield" class="text-lg font-black text-primary">0.32%</p>
+                </div>
+                <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">ROE</p>
+                    <p id="roe" class="text-lg font-black text-green-600">15.2%</p>
+                </div>
+                <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Debt/Equity</p>
+                    <p id="de" class="text-lg font-black text-slate-900">0.39</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <!-- Financials Overview -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="p-5 border-b border-slate-100">
+                        <h3 class="text-base font-bold flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span> Financial Summary (₹ Cr)
+                        </h3>
+                    </div>
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-slate-50 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                <th class="px-5 py-3 text-left">Metric</th>
+                                <th class="px-5 py-3 text-right">FY24</th>
+                                <th class="px-5 py-3 text-right">FY23</th>
+                                <th class="px-5 py-3 text-right">Growth</th>
+                            </tr>
+                        </thead>
+                        <tbody id="financial-table" class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3 font-semibold">Revenue</td>
+                                <td class="px-5 py-3 text-right font-bold">9,01,064</td>
+                                <td class="px-5 py-3 text-right text-slate-500">8,39,588</td>
+                                <td class="px-5 py-3 text-right font-bold text-green-600">+7.3%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3 font-semibold">Net Profit</td>
+                                <td class="px-5 py-3 text-right font-bold">69,621</td>
+                                <td class="px-5 py-3 text-right text-slate-500">66,702</td>
+                                <td class="px-5 py-3 text-right font-bold text-green-600">+4.4%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3 font-semibold">EBITDA</td>
+                                <td class="px-5 py-3 text-right font-bold">1,55,000</td>
+                                <td class="px-5 py-3 text-right text-slate-500">1,41,000</td>
+                                <td class="px-5 py-3 text-right font-bold text-green-600">+9.9%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3 font-semibold">EPS (₹)</td>
+                                <td class="px-5 py-3 text-right font-bold">102.87</td>
+                                <td class="px-5 py-3 text-right text-slate-500">98.49</td>
+                                <td class="px-5 py-3 text-right font-bold text-green-600">+4.4%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3 font-semibold">Operating Margin</td>
+                                <td class="px-5 py-3 text-right font-bold">17.2%</td>
+                                <td class="px-5 py-3 text-right text-slate-500">16.8%</td>
+                                <td class="px-5 py-3 text-right font-bold text-green-600">+0.4%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Shareholding Pattern -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="p-5 border-b border-slate-100">
+                        <h3 class="text-base font-bold flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-[20px]">pie_chart</span> Shareholding Pattern
+                        </h3>
+                    </div>
+                    <div class="p-5 space-y-5">
+                        <div>
+                            <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">Promoter Holding</span><span class="text-sm font-black text-primary" id="promoter-pct">50.33%</span></div>
+                            <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar h-full bg-primary rounded-full" style="width:50.33%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">FII Holding</span><span class="text-sm font-black text-blue-600" id="fii-pct">23.42%</span></div>
+                            <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar h-full bg-blue-500 rounded-full" style="width:23.42%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">DII Holding</span><span class="text-sm font-black text-green-600" id="dii-pct">14.15%</span></div>
+                            <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar h-full bg-green-500 rounded-full" style="width:14.15%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">Public/Others</span><span class="text-sm font-black text-slate-600" id="public-pct">12.10%</span></div>
+                            <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar h-full bg-slate-400 rounded-full" style="width:12.10%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Compare (Bluechip Watchlist) -->
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-5 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="text-base font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[20px]">compare_arrows</span> Bluechip Comparison
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-slate-50 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                <th class="px-5 py-3 text-left">Company</th>
+                                <th class="px-5 py-3 text-right">Price (₹)</th>
+                                <th class="px-5 py-3 text-right">Market Cap</th>
+                                <th class="px-5 py-3 text-right">P/E</th>
+                                <th class="px-5 py-3 text-right">ROE</th>
+                                <th class="px-5 py-3 text-right">Debt/Eq</th>
+                                <th class="px-5 py-3 text-right">Div Yield</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="hover:bg-primary/5 transition-colors bg-primary/[0.02]">
+                                <td class="px-5 py-3"><span class="font-bold">Reliance Industries</span><span class="text-[10px] text-slate-400 ml-2">RELIANCE</span></td>
+                                <td class="px-5 py-3 text-right font-bold">₹2,540</td>
+                                <td class="px-5 py-3 text-right">₹17.2L Cr</td>
+                                <td class="px-5 py-3 text-right">28.5</td>
+                                <td class="px-5 py-3 text-right text-green-600 font-bold">15.2%</td>
+                                <td class="px-5 py-3 text-right">0.39</td>
+                                <td class="px-5 py-3 text-right">0.32%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3"><span class="font-bold">HDFC Bank</span><span class="text-[10px] text-slate-400 ml-2">HDFCBANK</span></td>
+                                <td class="px-5 py-3 text-right font-bold">₹1,520</td>
+                                <td class="px-5 py-3 text-right">₹11.6L Cr</td>
+                                <td class="px-5 py-3 text-right">19.8</td>
+                                <td class="px-5 py-3 text-right text-green-600 font-bold">16.5%</td>
+                                <td class="px-5 py-3 text-right">N/A</td>
+                                <td class="px-5 py-3 text-right">1.18%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3"><span class="font-bold">TCS</span><span class="text-[10px] text-slate-400 ml-2">TCS</span></td>
+                                <td class="px-5 py-3 text-right font-bold">₹3,851</td>
+                                <td class="px-5 py-3 text-right">₹14.1L Cr</td>
+                                <td class="px-5 py-3 text-right">31.2</td>
+                                <td class="px-5 py-3 text-right text-green-600 font-bold">45.8%</td>
+                                <td class="px-5 py-3 text-right">0.05</td>
+                                <td class="px-5 py-3 text-right">1.32%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3"><span class="font-bold">ICICI Bank</span><span class="text-[10px] text-slate-400 ml-2">ICICIBANK</span></td>
+                                <td class="px-5 py-3 text-right font-bold">₹1,080</td>
+                                <td class="px-5 py-3 text-right">₹7.6L Cr</td>
+                                <td class="px-5 py-3 text-right">18.2</td>
+                                <td class="px-5 py-3 text-right text-green-600 font-bold">17.9%</td>
+                                <td class="px-5 py-3 text-right">N/A</td>
+                                <td class="px-5 py-3 text-right">0.82%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-5 py-3"><span class="font-bold">Infosys</span><span class="text-[10px] text-slate-400 ml-2">INFY</span></td>
+                                <td class="px-5 py-3 text-right font-bold">₹1,421</td>
+                                <td class="px-5 py-3 text-right">₹5.9L Cr</td>
+                                <td class="px-5 py-3 text-right">25.4</td>
+                                <td class="px-5 py-3 text-right text-green-600 font-bold">31.2%</td>
+                                <td class="px-5 py-3 text-right">0.08</td>
+                                <td class="px-5 py-3 text-right">2.45%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
-<div class="mt-auto p-6 border-t border-slate-200 dark:border-zinc-800">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
-<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Professional user profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCovegURC_TD_6yfLFQNGrwTkPpOzgPHMwlZEP6B1K4-HK6s5osstcFoo_o4p4p6_ZJqultLilxp_wlE64g0pqpz3n9lZSvY1Hy5x1bh4fKzjDzEKSUQl6QccS16Y7JZZ8Zlz2S-kmuzxbUeOjyXa-2ExxRo5ytbXSDWCrfGpzaeuq931jNrtPPHoo1QhRtR81HZfv_9r8ERwhC4CdHbM38GdR9g2_ZvCbL2CZttAbA4MX17lExUVQIB5oyJdJZOG4iC425g3rEbc"/>
-</div>
-<div class="overflow-hidden">
-<p class="text-sm font-bold truncate">Nilay Gupta</p>
-<p class="text-xs text-slate-500 truncate">Pro Member</p>
-</div>
-</div>
-</div>
-</aside>
-<!-- Main Content -->
-<main class="flex-1 flex flex-col overflow-hidden">
-<!-- Top Header -->
-<header class="h-16 bg-white dark:bg-zinc-900 border-b border-slate-200 dark:border-zinc-800 flex items-center justify-between px-8 shrink-0">
-<div class="flex items-center gap-4">
-<h2 class="text-xl font-bold text-slate-800 dark:text-slate-100">Nilay's Scanner Hub</h2>
-</div>
-<div class="flex items-center gap-4">
-<div class="relative w-64">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
-<input class="w-full pl-10 pr-4 py-1.5 bg-slate-100 dark:bg-zinc-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Search tickers, patterns..." type="text"/>
-</div>
-<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 transition-colors">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 transition-colors">
-<span class="material-symbols-outlined">settings</span>
-</button>
-</div>
-</header>
-<!-- Content Area -->
-<div class="flex-1 overflow-y-auto p-8">
-<!-- Tabs -->
-<div class="flex border-b border-slate-200 dark:border-zinc-800 mb-8">
-<button class="px-6 py-3 text-sm font-medium text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors border-b-2 border-transparent">
-                        All Scanners
-                    </button>
-<button class="px-6 py-3 text-sm font-bold text-primary border-b-2 border-primary transition-colors">
-                        Pattern Summary
-                    </button>
-</div>
-<!-- Summary Cards -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-<div class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm">
-<div class="flex items-center gap-4 mb-3">
-<div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600">
-<span class="material-symbols-outlined">trending_up</span>
-</div>
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Stocks in Range (0-3%)</p>
-</div>
-<p class="text-3xl font-bold">42</p>
-<div class="mt-2 text-xs text-emerald-600 font-medium">+12 since market open</div>
-</div>
-<div class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm">
-<div class="flex items-center gap-4 mb-3">
-<div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
-<span class="material-symbols-outlined">query_stats</span>
-</div>
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Patterns Detected</p>
-</div>
-<p class="text-3xl font-bold">128</p>
-<div class="mt-2 text-xs text-slate-400 font-medium">Across all major indices</div>
-</div>
-<div class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm">
-<div class="flex items-center gap-4 mb-3">
-<div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-500/10 flex items-center justify-center text-amber-600">
-<span class="material-symbols-outlined">verified_user</span>
-</div>
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Highest Confidence Setup</p>
-</div>
-<p class="text-3xl font-bold">VCP (98%)</p>
-<div class="mt-2 text-xs text-primary font-medium">8 high-conviction entries</div>
-</div>
-</div>
-<!-- Filters Bar -->
-<div class="flex flex-wrap items-center gap-3 mb-6">
-<div class="flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-lg text-xs font-semibold text-primary">
-                        Price: 0% - 3%
-                        <span class="material-symbols-outlined text-sm cursor-pointer">close</span>
-</div>
-<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-lg text-xs font-medium">
-                        Pattern: VCP, Consolidation...
-                        <span class="material-symbols-outlined text-sm text-slate-400">expand_more</span>
-</div>
-<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-lg text-xs font-medium">
-                        Confidence: High (80%+)
-                        <span class="material-symbols-outlined text-sm text-slate-400">expand_more</span>
-</div>
-<div class="ml-auto flex items-center gap-2">
-<button class="px-4 py-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100">Clear Filters</button>
-<button class="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-lg shadow-sm hover:brightness-110 transition-all flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">filter_alt</span> Apply Filters
-                        </button>
-</div>
-</div>
-<!-- Data Table Section -->
-<div class="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl shadow-sm overflow-hidden">
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-slate-50 dark:bg-zinc-800/50 text-slate-500 dark:text-zinc-400 text-xs font-bold uppercase tracking-wider">
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800">#</th>
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800">Company</th>
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800">Symbol</th>
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800">Price</th>
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800">Change (%)</th>
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800">Pattern Detected</th>
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800">Confidence</th>
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800">Source</th>
-<th class="px-6 py-4 border-b border-slate-200 dark:border-zinc-800 text-right">Action</th>
-</tr>
-</thead>
-<tbody class="text-sm">
-<tr class="hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors border-b border-slate-100 dark:border-zinc-800">
-<td class="px-6 py-4 text-slate-400">1</td>
-<td class="px-6 py-4 font-bold">Reliance Industries</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-zinc-800 rounded font-mono text-xs font-bold">RELIANCE</span></td>
-<td class="px-6 py-4 font-medium">₹2540.00</td>
-<td class="px-6 py-4 text-emerald-600 font-bold">+1.42%</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-primary/10 text-primary text-xs font-bold rounded">VCP</span></td>
-<td class="px-6 py-4">
-<div class="flex items-center gap-2">
-<div class="w-16 h-1.5 bg-slate-100 dark:bg-zinc-800 rounded-full overflow-hidden">
-<div class="h-full bg-primary" style="width: 98%"></div>
-</div>
-<span class="text-xs font-bold">98%</span>
-</div>
-</td>
-<td class="px-6 py-4 text-slate-500">Vol-Screener Pro</td>
-<td class="px-6 py-4 text-right">
-<button class="p-2 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-lg text-primary transition-colors">
-<span class="material-symbols-outlined">add_chart</span>
-</button>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors border-b border-slate-100 dark:border-zinc-800">
-<td class="px-6 py-4 text-slate-400">2</td>
-<td class="px-6 py-4 font-bold">HDFC Bank</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-zinc-800 rounded font-mono text-xs font-bold">HDFCBANK</span></td>
-<td class="px-6 py-4 font-medium">₹1520.10</td>
-<td class="px-6 py-4 text-emerald-600 font-bold">+0.85%</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold rounded">Cup &amp; Handle</span></td>
-<td class="px-6 py-4">
-<div class="flex items-center gap-2">
-<div class="w-16 h-1.5 bg-slate-100 dark:bg-zinc-800 rounded-full overflow-hidden">
-<div class="h-full bg-primary" style="width: 84%"></div>
-</div>
-<span class="text-xs font-bold">84%</span>
-</div>
-</td>
-<td class="px-6 py-4 text-slate-500">PatternScanner AI</td>
-<td class="px-6 py-4 text-right">
-<button class="p-2 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-lg text-primary transition-colors">
-<span class="material-symbols-outlined">add_chart</span>
-</button>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors border-b border-slate-100 dark:border-zinc-800">
-<td class="px-6 py-4 text-slate-400">3</td>
-<td class="px-6 py-4 font-bold">Tata Consultancy Services</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-zinc-800 rounded font-mono text-xs font-bold">TCS</span></td>
-<td class="px-6 py-4 font-medium">₹3850.50</td>
-<td class="px-6 py-4 text-emerald-600 font-bold">+2.10%</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold rounded">Tight Consolidation</span></td>
-<td class="px-6 py-4">
-<div class="flex items-center gap-2">
-<div class="w-16 h-1.5 bg-slate-100 dark:bg-zinc-800 rounded-full overflow-hidden">
-<div class="h-full bg-primary" style="width: 92%"></div>
-</div>
-<span class="text-xs font-bold">92%</span>
-</div>
-</td>
-<td class="px-6 py-4 text-slate-500">Intra-Day Alpha</td>
-<td class="px-6 py-4 text-right">
-<button class="p-2 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-lg text-primary transition-colors">
-<span class="material-symbols-outlined">add_chart</span>
-</button>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors border-b border-slate-100 dark:border-zinc-800">
-<td class="px-6 py-4 text-slate-400">4</td>
-<td class="px-6 py-4 font-bold">ICICI Bank</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-zinc-800 rounded font-mono text-xs font-bold">ICICIBANK</span></td>
-<td class="px-6 py-4 font-medium">₹1080.25</td>
-<td class="px-6 py-4 text-emerald-600 font-bold">+0.30%</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold rounded">Bullish Engulfing</span></td>
-<td class="px-6 py-4">
-<div class="flex items-center gap-2">
-<div class="w-16 h-1.5 bg-slate-100 dark:bg-zinc-800 rounded-full overflow-hidden">
-<div class="h-full bg-primary" style="width: 76%"></div>
-</div>
-<span class="text-xs font-bold">76%</span>
-</div>
-</td>
-<td class="px-6 py-4 text-slate-500">Candlestick Hub</td>
-<td class="px-6 py-4 text-right">
-<button class="p-2 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-lg text-primary transition-colors">
-<span class="material-symbols-outlined">add_chart</span>
-</button>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors border-b border-slate-100 dark:border-zinc-800">
-<td class="px-6 py-4 text-slate-400">5</td>
-<td class="px-6 py-4 font-bold">Infosys</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-slate-100 dark:bg-zinc-800 rounded font-mono text-xs font-bold">INFY</span></td>
-<td class="px-6 py-4 font-medium">₹1420.75</td>
-<td class="px-6 py-4 text-emerald-600 font-bold">+1.15%</td>
-<td class="px-6 py-4"><span class="px-2 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 text-xs font-bold rounded">Rounding Bottom</span></td>
-<td class="px-6 py-4">
-<div class="flex items-center gap-2">
-<div class="w-16 h-1.5 bg-slate-100 dark:bg-zinc-800 rounded-full overflow-hidden">
-<div class="h-full bg-primary" style="width: 81%"></div>
-</div>
-<span class="text-xs font-bold">81%</span>
-</div>
-</td>
-<td class="px-6 py-4 text-slate-500">Long-Term Builder</td>
-<td class="px-6 py-4 text-right">
-<button class="p-2 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-lg text-primary transition-colors">
-<span class="material-symbols-outlined">add_chart</span>
-</button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Table Footer / Pagination -->
-<div class="px-6 py-4 bg-slate-50 dark:bg-zinc-800/30 border-t border-slate-200 dark:border-zinc-800 flex items-center justify-between text-xs text-slate-500 font-medium">
-<div>Showing 1-5 of 42 high-probability patterns</div>
-<div class="flex items-center gap-2">
-<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 disabled:opacity-50" disabled="">
-<span class="material-symbols-outlined text-sm">chevron_left</span>
-</button>
-<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-white font-bold">1</button>
-<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 hover:bg-slate-50 transition-colors">2</button>
-<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 hover:bg-slate-50 transition-colors">3</button>
-<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 hover:bg-slate-50 transition-colors">
-<span class="material-symbols-outlined text-sm">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
-</body></html>
+
+<script>
+    // Quick company data store for search
+    const companies = {
+        'RELIANCE': { name: 'Reliance Industries Ltd', sector: 'Energy • Conglomerate • Mumbai', price: '₹2,540.15', change: '+₹28.50 (+1.13%)', changeClass: 'text-green-600', mcap: '₹17.2L Cr', pe: '28.5', pb: '2.1', divy: '0.32%', roe: '15.2%', de: '0.39', promoter: '50.33%', fii: '23.42%', dii: '14.15%', public: '12.10%' },
+        'HDFCBANK': { name: 'HDFC Bank Ltd', sector: 'Banking • Financial Services • Mumbai', price: '₹1,520.10', change: '+₹12.30 (+0.82%)', changeClass: 'text-green-600', mcap: '₹11.6L Cr', pe: '19.8', pb: '2.8', divy: '1.18%', roe: '16.5%', de: 'N/A', promoter: '25.51%', fii: '33.21%', dii: '23.41%', public: '17.87%' },
+        'TCS': { name: 'Tata Consultancy Services', sector: 'IT • Software Services • Mumbai', price: '₹3,851.45', change: '+₹45.20 (+1.19%)', changeClass: 'text-green-600', mcap: '₹14.1L Cr', pe: '31.2', pb: '12.5', divy: '1.32%', roe: '45.8%', de: '0.05', promoter: '72.30%', fii: '12.45%', dii: '5.80%', public: '9.45%' },
+        'ICICIBANK': { name: 'ICICI Bank Ltd', sector: 'Banking • Financial Services • Mumbai', price: '₹1,080.25', change: '-₹5.40 (-0.50%)', changeClass: 'text-red-500', mcap: '₹7.6L Cr', pe: '18.2', pb: '3.1', divy: '0.82%', roe: '17.9%', de: 'N/A', promoter: '0.00%', fii: '45.21%', dii: '37.55%', public: '17.24%' },
+        'INFY': { name: 'Infosys Ltd', sector: 'IT • Software Services • Bangalore', price: '₹1,421.75', change: '+₹18.90 (+1.35%)', changeClass: 'text-green-600', mcap: '₹5.9L Cr', pe: '25.4', pb: '7.8', divy: '2.45%', roe: '31.2%', de: '0.08', promoter: '14.78%', fii: '35.60%', dii: '18.30%', public: '31.32%' },
+    };
+
+    function searchStock() {
+        const input = document.getElementById('stock-search').value.trim().toUpperCase();
+        const c = companies[input];
+        if (!c) { alert('Stock not found. Try: RELIANCE, HDFCBANK, TCS, ICICIBANK, INFY'); return; }
+        
+        document.getElementById('company-name').textContent = c.name;
+        document.getElementById('company-symbol').textContent = 'NSE: ' + input;
+        document.getElementById('company-sector').textContent = c.sector;
+        document.getElementById('live-price').textContent = c.price;
+        document.getElementById('price-change').textContent = c.change + ' Today';
+        document.getElementById('price-change').className = 'text-sm font-bold mt-1 ' + c.changeClass;
+        document.getElementById('mcap').textContent = c.mcap;
+        document.getElementById('pe').textContent = c.pe;
+        document.getElementById('pb').textContent = c.pb;
+        document.getElementById('divyield').textContent = c.divy;
+        document.getElementById('roe').textContent = c.roe;
+        document.getElementById('de').textContent = c.de;
+        
+        // Update shareholding
+        document.getElementById('promoter-pct').textContent = c.promoter;
+        document.getElementById('fii-pct').textContent = c.fii;
+        document.getElementById('dii-pct').textContent = c.dii;
+        document.getElementById('public-pct').textContent = c.public;
+        
+        document.querySelectorAll('.progress-bar').forEach((bar, i) => {
+            const values = [c.promoter, c.fii, c.dii, c.public];
+            bar.style.width = values[i];
+        });
+    }
+
+    // Enter key support
+    document.getElementById('stock-search').addEventListener('keypress', function(e) { if (e.key === 'Enter') searchStock(); });
+</script>
+</body>
+</html>
